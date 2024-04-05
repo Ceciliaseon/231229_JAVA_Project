@@ -1,0 +1,59 @@
+package day18;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class WordManager {
+	
+	public WordManager() {};
+	
+	HashMap<String, String> map = new HashMap<>();
+
+	public void MakeWord(Scanner sc) {
+			
+		int cnt = 0;
+		while (cnt < 4) {
+			System.out.println("단어 :");
+			String word = sc.next();
+			System.out.println("뜻 : ");
+			String mean = sc.next();
+			
+			map.put("apple", "사과");
+			map.put("banana", "바나나");
+			map.put("school", "학교");
+			map.put("mean", "뜻");
+			map.put("word", "단어");	
+			map.put(word, mean);
+			
+			cnt++;
+			}
+		}
+		
+//		System.out.println();
+//		System.out.println("--단어장--");
+//		for (String s : map.keySet()) {
+//			System.out.println(s+" : "+map.get(s));
+//
+//	}
+
+	
+	public void searchWord(Scanner sc) {
+		
+		System.out.println("검색할 단어를 입력하세요 > ");
+		String st = sc.next();
+		
+		
+		
+	}
+	
+	public void printWord() {
+		
+		System.out.println("---단어장---");
+		for (String s : map.keySet()) {
+			System.out.println(s+" : "+map.get(s));
+		}
+		
+		
+	}
+}

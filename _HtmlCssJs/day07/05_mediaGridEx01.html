@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .header{
+            height: 50px;
+            background-color: bisque;
+            line-height: 50px;
+            padding-left: 20px;
+            font-weight: 700;
+            font-size: 25px;
+            font-family: "Noto Sans KR", sans-serif;
+            color: rgb(87, 57, 20);
+            position: sticky;
+            top: 0;
+        }
+        .main-img{
+            background-image: url(../image/grid/bag-img.jpg);
+            height: 50vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .content{
+            height: 25vh;
+            padding: 10px 0 0 15px;
+            margin-bottom: 50px;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        .content p:nth-child(1){
+            font-size: 15px;
+            font-weight: 700;
+            color: rgb(196, 152, 121);
+        }
+        .content p:nth-child(2){
+            font-size: 20px;
+            font-weight: 700;
+            padding-top: 20px;
+        }
+        .subject{
+            background-image: url(../image/grid/가방.jpg);
+            height: 55vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .link{
+            background-image: url(../image/Travel_2.jpg);
+            height: 30vh;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: relative;
+        }
+        .link div{
+            width: 50%;
+            height: 50px;
+            border: 3px solid white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            line-height: 50px;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 25px;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        .footer{
+            background-image: url(../image/grid/가방2.jpg);
+            background-repeat: no-repeat;
+            height: 50vh;
+            background-size: cover;
+        }
+        @media screen and (min-width : 800px) {
+            .main-img{
+                background-position: center;
+            }
+            .subject{
+                float: left;
+                width: 50%;
+                height: 400px;
+                background-size: 700px;
+                background-position: center;
+            }
+            .link{
+                float: right;
+                width: 50%;
+                height: 200px;
+            }
+            .footer{
+                float: right;
+                width: 50%;
+                height: 200px;
+                background-position: center;
+            }
+        }
+        @media screen and (min-width : 1200px) {
+            .header{
+            height: 50px;
+            }
+            .main-img{
+                float: left;
+                width: 50%;
+                height: 850px;
+                background-size: cover;
+
+            }
+            .content{
+                width: 50%;
+                height: 425px;
+                float: right;
+                /* box-sizing: border-box; */
+                margin: 0;
+            }
+            .subject{
+                width: 25%;
+                height: 425px;
+                background-position: center;
+            }
+            .link{
+                width: 25%;
+                height: 212.5px;
+                background-size: cover;
+                a{
+                    font-size: 18px;
+                }
+            }
+            .footer{
+                width: 25%;
+                height: 212.5px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="header">IN'O</div>
+    <div class="main-img"></div>
+    <div class="content">
+        <p>Portfolio</p>
+        <p>Make Hardware Soft</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos cumque nam culpa, quis asperiores illo quaerat labore tempore recusandae, beatae odit iste quasi repellat optio veritatis ipsa ducimus laudantium ipsam!</p>
+    </div>
+    <div class="subject"></div>
+    <div class="link">
+        <div>
+            <a href="">VIEW MORE</a>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: bemin1;
+            src: url(../font/BMEuljiro10yearslater.ttf);
+        }
+        @font-face {
+            font-family: bemin2;
+            src: url(../font/BMEULJIROTTF.ttf);
+        }
+        *{
+            text-align: center;
+            background-color: rgb(42, 193, 188);
+        }
+        .logo{
+            width: 80px;
+            height: 80px;
+            margin-top: 10px;
+        }
+        header {
+            /* - "맑은 고딕", "Malgun Gothic", 굴림, Gulim, serif(기본값) */
+            font-family: "bemin2";
+        }
+        .menu{
+            border-radius: 10px;
+            background-color: white;
+            width: 300px;
+            margin: 0 auto;
+        }
+        header h1{
+            font-size: 60px;
+        }
+        header h3{
+            font-size: 30px;
+        }
+        .image1{
+            background-image: url(../image/배민/초밥.jpg);
+        }
+        .text{
+            width: 300px;
+            height: 200px;
+            border-radius: 0 0 10px 10px;
+            background-color: white;
+            font-family: "bemin2", ser;
+        }
+        .text > h3, p, del{
+            background-color: white;
+        }
+        .menu h3{
+            font-size: 20px;
+        }
+        del{
+            color: rgb(179, 179, 179);
+        }
+        .last-font{
+            color: white;
+            width: 80px;
+            height: 25px;
+            line-height: 25px;
+            margin: 0 auto;
+            background-color: rgb(42, 193, 188);
+            border-radius: 10px;
+        }
+        .price{
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .image1, .image2, .image3,
+        .image4, .image5{
+            margin-top: 50px;
+            background-size: 100%;
+            background-position: 1%;
+            background-repeat: no-repeat;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px 10px 0 0;
+        }
+        .image2{
+            background-image: url(../image/배민/보쌈.jpg);
+        }
+        .image3{
+            background-image: url(../image/배민/갈비찜.jpg);
+        }
+        .image4{
+            background-image: url(../image/배민/김치찜.jpg);
+        }
+        .image5{
+            background-image: url(../image/배민/마라탕.jpg);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="../image/baemin_logo/아이콘/아이콘_라운드_웹용(저해상도_ RGB).png" alt="">
+            <h1>배달의 민족</h1>
+            <h3>넌 배달할 때가 제일 멋있어</h3>    
+    </header>
+    <div class="menu">
+        <div class="image1"></div>
+        <div class="text">
+            <h3>맛있는 초밥</h3>
+            <p>주머니가 가벼운 당신의 마음까지</p>
+            <p>생각한 착한 가격!</p>
+            <p class="price"><del>25,000</del> 15,000</p>
+            <p class="last-font">바로결제</p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="image2"></div>
+        <div class="text">
+        <h3>장인의 맛 보쌈</h3>
+        <p>부드러운 살코기도</p>
+        <p>매콤한 김치의 만남 환.상</p>
+        <p class="price"><del>36,000</del> 25,000</p>
+        <p class="last-font">바로결제</p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="image3"></div>
+        <div class="text">
+        <h3>부드럽고 짭짤한 갈비찜</h3>
+        <p>달큰한 양념과</p>
+        <p>부드러운 갈비가 일품</p>
+        <p class="price"><del>40,000</del> 30,000</p>
+        <p class="last-font">바로결제</p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="image4"></div>
+        <div class="text">
+        <h3>오늘의 집밥은, 김치찜</h3>
+        <p>부드러운 삼겹살과</p>
+        <p>푹~ 익은 묵은지는 말모말모</p>
+        <p class="price"><del>28,000</del> 18,000</p>
+        <p class="last-font">바로결제</p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="image5"></div>
+        <div class="text">
+        <h3>야식계의 신흥강자, 마라탕</h3>
+        <p>얼얼한 마라소스와 어우러지는</p>
+        <p>다양한 재료들! 내맘대로 담아~</p>
+        <p class="price"><del>16,000</del> 10,000</p>
+        <p class="last-font">바로결제</p>
+        </div>
+    </div>
+</body>
+</html>

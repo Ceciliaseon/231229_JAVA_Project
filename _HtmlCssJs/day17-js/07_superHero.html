@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gasoek+One&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+        header{
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        #h1{
+            margin: 40px auto 50px;
+            /* margin-bottom: 30px; */
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 700;
+            font-size: 80px;
+            border: 4px double rgb(88, 88, 88);
+            width: 50%;
+        }
+        span {
+            color: rgb(80, 80, 80);
+            font-size: 20px;
+        }    
+        section {
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+            margin-right: 60px;
+        }
+        .box h1{
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 30px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1 id="h1">dd</h1>
+        <span id="hometown"></span>
+        <span id="formed"></span>
+    </header>
+    <section id="contain"></section>
+    <!-- <div id="div1"></div>
+    <div id="div1"></div>
+    <div id="div1"></div> -->
+
+    <script>// 선생님 풀이
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp => resp.json())
+        .then(result => console.log(result));
+
+        const header = document.getElementById('header');
+        const contain = document.getElementById('contain');
+
+
+        function printDat(obj){
+            console.log(obj);
+            // header 넣을 객체 str 생성
+            let str ='';
+            str += `<h1>${obj.squadName}</h1>`;
+            str += `<h3> homeTown : ${obj.homeTown} // formed ${obj.formed} </h3>`
+            header.innerHTML = str;
+            // section 넣을 객체 str 생성
+            
+        }
+    </script>
+    <script>
+        async function asyncFun(){
+            try {
+                const superheroes = await fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+                // let parseData = JSON.parse(superheroes);
+                const result = await superheroes.json();
+                // console.log(superheroes);
+                // console.log(result);
+                return result;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        function res(obj){
+            let h1 = document.getElementById('h1');
+            let hometown = document.getElementById('hometown');
+            let formed = document.getElementById('formed');
+
+            // console.log(`Formed : ${obj.formed}`);
+            h1.innerText = `${obj.squadName}`;
+            hometown.innerHTML =  `Hometown : ${obj.homeTown} //`;
+            formed.innerText = `Formed : ${obj.formed}`;
+        }
+        asyncFun().then(result => res(result));
+
+
+        function bodyText(obj){
+            
+            let text1 = document.getElementById('contain');
+            let str ='';
+            console.log(obj.members[0]);
+
+            for(let i=0;i<obj.members.length;i++){
+                    str += `<div class='box'><h1> ${obj.members[i].name}</h1>`;
+                    str += `<div> secretIdentity : ${obj.members[i].secretIdentity}</div>`;
+                    str += `<div>age : ${obj.members[i].age}</div>`;
+                    str += `<div> Superpowers : </div>`;
+                    for (let j = 0;j<obj.members[i].powers.length;j++){
+                        str += `<li> ${obj.members[i].powers[j]}</li>`;
+                    }
+                    str += `</div>`;
+                    text1.innerHTML = str;
+            }
+        }
+        asyncFun().then(result => bodyText(result));
+
+
+    </script>
+</body>
+</html>

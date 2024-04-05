@@ -1,0 +1,19 @@
+package Bar;
+
+import java.util.Scanner;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner (System.in);
+		UserList ul = new UserList();
+		
+		System.out.println("회원가입");
+		ul.addUser(scan);
+		
+		System.out.println(ul);
+
+	}
+
+}

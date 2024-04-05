@@ -1,0 +1,80 @@
+package Bar;
+
+import java.util.Scanner;
+
+
+
+public class BarMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		BarManager bm = new BarManager();
+		int menu=0;
+		do {
+			System.out.println("                                *                           ***     \n"
+					+ "                              **          *             *    ***    \n"
+					+ "                              **         **            ***    **    \n"
+					+ "                              **         **             *     **    \n"
+					+ "             ****             **       ********               **    \n"
+					+ "   ****     * ***  *  ****    **  *** ******** ****   ***     **    \n"
+					+ "  * ***  * *   ****  * ***  * ** * ***   **   * ***  * ***    **    \n"
+					+ " *   **** **    **  *   ****  ***   *    **  *   ****   **    **    \n"
+					+ "**        **    ** **         **   *     ** **    **    **    **    \n"
+					+ "**        **    ** **         **  *      ** **    **    **    **    \n"
+					+ "**        **    ** **         ** **      ** **    **    **    **    \n"
+					+ "**        **    ** **         ******     ** **    **    **    **    \n"
+					+ "***     *  ******  ***     *  **  ***    ** **    **    **    **    \n"
+					+ " ******* ** ****    *******   **   *** *  ** ***** **   *** * *** * \n"
+					+ "  *****  **          *****     **   ***       ***   **   ***   ***  \n"
+					+ "         **                                                         \n"
+					+ "         **                ***  ****                     ▓▓ /          \n"
+					+ "         ** ****     ****   **** **** *                ▓▓▓▓/            \n"
+					+ "         *** ***  * * ***  * **   ****        ░░░░░░░░░▓▓▓▓░░░                     \n"
+					+ "         **   **** *   ****  **                ░░░░░░░░░░░░░░                     \n"
+					+ "         **    ** **    **   **                 ░░░░░░░░░░░░                    \n"
+					+ "         **    ** **    **   **                  ░░░░░░░░░░                   \n"
+					+ "         **    ** **    **   **                    ░░░░░░░                  \n"
+					+ "         **    ** **    **   **                       ░░              \n"
+					+ "         **    ** **    **   ***                      ░░              \n"
+					+ "          *****    ***** **   ***                    ░░░░             \n"
+					+ "           ***      ***   **                                        \n"
+					+ "                                        ");
+			System.out.println();
+			System.out.println("   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+			System.out.println("     1.  회 원 가 입    2. 로  그  인    3. 충 전 하 기    ");
+			System.out.println("     4. 마 이 페 이 지   5. 예 약 하 기   6. 예 약 취 소    ");
+			System.out.println("     7. 메 뉴 보 기    8. 주 문 하 기   9. 영  수  증      ");
+			System.out.println("                      10. 종      료                   ");
+			System.out.println("   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+			System.out.println("               이용하실 서비스를 선택해주세요.               ");
+			
+
+			menu=scan.nextInt();
+			
+			switch (menu) {
+			case 1: bm.signUp(scan); break;
+			case 2: bm.logIn(scan); break;
+			case 3: bm.addMoney(scan); break;
+			case 4: bm.myPage(scan); break;
+			case 5: bm.reservation(scan); break;
+			case 6: bm.delRes(scan); break;
+			case 7: bm.printMenu(); break;
+			case 8: bm.orderPick(scan); break;
+			case 9: bm.printReceipt(); break;
+			case 10: break;
+			
+
+			default: System.out.println("잘못된 메뉴입니다.");
+				break;
+			}
+		
+		} while (menu!=10);
+			System.out.println("Bar가 종료되었습니다.");
+		
+		
+		scan.close();
+
+	}
+
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="eventFunc()">클릭해보세요</button>
+    <button type="button" onclick="eventFunc2('버튼2번입니다')">클릭해 보세요</button>
+    <button type="button" id="btn">클릭해보세요!</button>
+    <button type="button" id="test">test</button>
+    <h1 id="result"></h1>
+
+    <script>
+        let result = document.getElementById('result');
+        let test = document.getElementById('test');
+
+        // .onclick을 사용하게 되면 오직 하나의 이벤트만 등록이 가능함
+        test.onclick = function(){
+            alert('hello');
+        };
+
+        // 여러 이벤트를 등록할 시에는 .addEventListener('click',()=>{}) 을 사용함
+        document.getElementById('btn').addEventListener('click',()=>{
+            alert('세번째 버튼입니다. hi!');
+        });
+
+
+        function eventFunc(){
+            result.innerText = '봉쥬르~'
+            alert('첫번째 버튼을 클릭하셨습니다.');
+        };
+
+        function eventFunc2(param1){
+            result.innerHTML = 
+            `<p class='s' style='color:red'> ${param1} 태그를 사용했습니다.</p>`
+            // innerHTML 안에서 스타일을 줄 수도 있음
+        }
+    </script>
+
+    <form action="">
+        <fieldset>
+            <legend>성적확인</legend>
+            이름 : <input type="text" id="name">
+            국어 : <input type="text" id="kor">
+            수학 : <input type="text" id="mat">
+            영어 : <input type="text" id="eng">
+            <button type="button"  onclick="grad()">성적계산</button>
+        </fieldset>
+    </form>
+    <ol id="ol"></ol>
+    <script>
+        let name = document.getElementById('name').value;
+        let kor = document.getElementById('kor').value;
+        let mat = document.getElementById('mat').value;
+        let eng = document.getElementById('eng').value;
+        const btn = document.getElementById('btn');
+
+        const ol = document.getElementById('ol'); //출력문을 찍을 곳
+        
+        function grad(){
+            let sum = Number(kor)+Number(eng)+Number(mat);
+            let avg = sum/3;
+            
+            let str = `<li> 이름 : ${name} </li>`;
+            str += `<li> 국어 ${kor}</li>`;
+            str += `<li> 수학 ${mat}</li>`;
+            str += `<li> 영어 ${eng}</li>`;
+            str += `<li> 합계 ${sum}</li>`;
+            str += `<li> 평균 ${avg.toFixed(2)}</li>`;
+            
+            ol.innerHTML = str;
+        };
+
+        btn.addEventListener('click',()=>{
+            console.log(sum);
+            let str = `<li> 이름 : ${name} </li>`;
+            str += `<li> 국어 ${Number(kor)}</li>`;
+            str += `<li> 수학 ${Number(mat)}</li>`;
+            str += `<li> 영어 ${Number(eng)}</li>`;
+            str += `<li> 합계 ${sum}</li>`;
+            str += `<li> 평균 ${avg.toFixed(2)}</li>`;
+            console.log(str);
+
+            ol.innerHTML = str;
+        });
+    </script>
+</body>
+</html>

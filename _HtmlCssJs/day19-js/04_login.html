@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(0, 51, 95);
+        }
+        .container{
+            width: 300px;
+            background-color: rgb(142, 169, 191);
+            /* 화면의 정중앙에 위치 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px 30px;
+        }
+        .text-field, .btn{
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        .btn{
+            background-color: rgb(94, 113, 129);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .link{
+            margin-top: 30px;
+        }
+        .link>a{
+            color: rgb(66, 66, 66);
+            text-decoration: none;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input type="text" class="text-field" name="id" placeholder="아이디" id="id">
+            <input type="password" class="text-field" name="pw" placeholder="비밀번호" id="pw">
+            <!-- <button type="button" id="btn">로그인</button> -->
+            <input type="button" class="btn" value="로그인" >
+        </form>
+        <div class="link">
+            <a href="">비밀번호를 잊어버리셨나요</a>
+        </div>
+    </div>
+    <script>
+        const input = document.querySelectorAll('.text-field');
+        const btn = document.querySelector('.btn');
+        console.log(btn);
+        console.log(input)
+        
+        input[0].addEventListener('input',()=>{
+            // id의 관한 규칙 : 8글자 이상
+            if(input[1].value.length > 7){
+                if(input[0].value.length > 7){
+                    btn.disabled = false;
+                    btn.style.setProperty('background-color', 'rgb(0, 32, 136)');
+                }
+            } else {
+                btn.disabled = true;
+                btn.style.setProperty('background-color', 'rgb(0, 72, 136)');
+            }
+            // let reg = new RegExp(/^.{8,}$/);
+            // console.log(input[0].value, reg.test(input[0].value));
+        });
+        input[1].addEventListener('input',()=>{
+            // 비밀번호 체크
+            // 문자, 숫자, 특수문자 포함 8글자 이상
+            let reg = new RegExp(/^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/);
+            console.log(input[1].value, reg.test(input[1].value));
+            let uid = input[0].value;
+            let upw = input[1].value;
+            if(uid.length > 7){
+                if(reg.test(upw)){
+                    btn.disabled = false;
+                    btn.style.setProperty('background-color', 'rgb(0, 32, 136)');
+                } else {
+                    btn.disabled = true;
+                    btn.style.setProperty('background-color', 'rgb(0, 72, 136)');
+                }
+            } else {
+                btn.disabled = true;
+                btn.style.setProperty('background-color', 'rgb(0, 72, 136)');
+            }
+        });
+
+    </script>
+    <!-- <script>
+        // ^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$
+        // disable = true > 비활성화 
+        // disable = false > 활성화 > 색 변경되어야 함  
+
+        const id = document.getElementById('id');
+        const pw = document.getElementById('pw');
+        const btn = document.getElementById('btn');
+        
+        let isId = /^.{8,}$/;
+        let isPw = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        
+        document.getElementById('id').addEventListener('input',()=>{
+            if(isId.test(id.value)){
+                console.log("*"+isId.test(id.value));
+                btn.disabled = false;
+                btn.style.backgroundColor = 'rgb(' + 0 + ',' + 32 + ',' + 136 + ')';
+            } else {
+                btn.style.backgroundColor = 'rgb(' + 0 + ',' + 72 + ',' + 136 + ')';
+                console.log(isId.test(id.value));
+            }
+        });
+        
+        document.getElementById('pw').addEventListener('input',()=>{
+            if(isPw.test(pw.value) && isId.test(id.value)){
+                console.log("*"+isPw.test(pw.value));
+                btn.disabled = false;
+                btn.style.backgroundColor = 'rgb(' + 0 + ',' + 32 + ',' + 136 + ')';
+            } else {
+                btn.style.backgroundColor = 'rgb(' + 0 + ',' + 72 + ',' + 136 + ')';
+                console.log(isPw.test(pw.value));
+            }
+        });
+        
+        // function isId(e){
+        //     let isID = /^.{8,}$/;
+        //     return isID.test(e);
+        // }
+
+        // function isPw(e){
+        //     const isPw = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        //     return isPw(e);
+        // }
+
+
+    </script> -->
+</body>
+</html>

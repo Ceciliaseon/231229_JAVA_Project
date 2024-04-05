@@ -1,0 +1,109 @@
+package Bar;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class AddMoney{
+	
+    //배열 선언
+    private int money ; 
+ 
+    public void addMoney(Scanner scan){
+    	int money=0;    
+   		
+//    	for (int i=0;i<userList.size();i++) {
+//			System.out.println("pw를 입력하세요.");
+//			String pw = scan.next();
+//			if (userList.get(i).getPw().equals(pw)){
+//				userList.get(i).userPrint();
+//				return;
+//			}
+//			System.out.println("pw가 틀렸습니다.");		 
+//		}
+//		System.out.println("로그인 후 확인 가능합니다.");
+    	
+    	
+    	while(true) {
+    		
+    		if (UserManager.this.getMyUser() == null) {
+    			System.out.println("로그인 후 진행 가능합니다.");
+    			break;
+    		} else {
+    			System.out.println();
+    			System.out.println("             Cocktail Bar Cash");
+    			System.out.println("   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");        		
+    			System.out.println("     1.충전 | 2. 환불 | 3. 잔액 조회 | 4. 종료");
+    			int s = scan.nextInt();
+    			if(s==1) {
+    				System.out.print("입금액  >> ");
+    				int amount = scan.nextInt();
+    				money+=amount;
+    				System.out.println("--충전 완료--");
+    				System.out.println("잔액:"+ money );
+    			} else if(s==2) {
+    				System.out.println("인출액 >>");
+    				int minus = scan.nextInt();
+    				if (money < minus) {
+    					System.out.println("잔액부족, 인출 불가합니다.");
+    				}
+    				money -=minus;
+    				System.out.println("--인출 완료--");
+    				System.out.println("잔액 :"+ money);
+    			} else if(s == 3){
+    				System.out.println("--현재 잔액--");  
+    				System.out.println("잔액 : "+money);
+    			} else {
+    				System.out.println("충전 종료");
+    				break;
+    			}
+    		}
+    	}
+
+    		} 
+
+//    		do {
+//     			System.out.println();
+//    			System.out.println("       Cocktail Bar Cash");
+//    			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");        		
+//    			System.out.println("1.충전 | 2. 환불 | 3. 잔액 조회 | 4. 종료");
+//    			
+//    			int s = scan.nextInt();
+//    			
+//    			if(s==1) {
+//    				System.out.print("입금액  >> ");
+//    				int amount = scan.nextInt();
+//    				money+=amount;
+//    				System.out.println("--충전 완료--");
+//    				System.out.println("잔액:"+ money );
+//    				break;
+//    			} else if(s==2) {
+//    				System.out.println("인출액 >>");
+//    				int minus = scan.nextInt();
+//    				if (money < minus) {
+//    					System.out.println("잔액부족, 인출 불가합니다.");
+//    				}
+//    				money -=minus;
+//    				System.out.println("--인출 완료--");
+//    				System.out.println("잔액 :"+ money);
+//    				break;
+//    			} else if(s == 3){
+//    				System.out.println("--현재 잔액--");  
+//    				System.out.println("잔액 : "+money);
+//    				break;
+//    			} else {
+//    				System.out.println("충전 종료");
+//    				break;
+//    			}
+//    		} while (ad.getId() == null);	
+//    		System.out.println("로그인 후 진행 가능합니다.");
+//    }
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+}  
+    

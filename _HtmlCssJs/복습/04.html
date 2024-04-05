@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //010101-3123456 > 010101-3******
+        let num = '010101-4234567';
+        let rNum = num.length;
+        console.log(num);
+        console.log(num.slice(0,num.indexOf('-')+2).padEnd(rNum,'*'));
+
+        //rNum의 성별을 추출 > console에 출력
+        //-다음의 숫자가 1,3dlaus 남 / 아니면 여
+
+        let rNumG = num.charAt(num.indexOf('-')+1);
+
+        if (rNumG == '1' | rNumG =='3'){
+            console.log('남');
+        } else {
+            console.log('여');
+        }
+
+        console.log((rNumG == '1' | rNumG =='3')?'남':'여');
+
+        let fullFileName = '20240318_javascript.string_method.html'
+        //파일명만 추출
+        let file = fullFileName.slice(fullFileName.indexOf('_')+1,fullFileName.lastIndexOf('.'));
+        console.log(file);
+        //작성일자 추출
+        let date = fullFileName.slice(0,fullFileName.indexOf('_'));
+        console.log(date);
+        //확장자만 추출
+        let name = fullFileName.slice(fullFileName.lastIndexOf('.')+1);
+        console.log(name);
+    </script>
+
+    <form action="">
+        이름 <input type="text" id="name"> <br>
+        주민번호 : <input type="text" id="userNum"> <br>
+        <button type="button" onclick="datas()">확인</button>
+    </form>
+    <h3 id="print"> </h3>
+
+    <script>
+        console.log('-------------------------')
+
+        const print = document.getElementById('print');
+        function datas(){
+            let name = document.getElementById('name').value; //이름값
+            let userNum = document.getElementById('userNum').value; //주민번호
+
+            // console.log(name, userNum);
+            let brith = userNum.slice(0,userNum.indexOf('-')); //생년월일
+            // console.log(brith);
+
+            let today = new Date().getFullYear(); //2024년도만
+            let baseBirth = null;
+            let brithyear = brith.slice(0,2);
+            console.log(brithyear);
+            
+            if (userNum.charAt(userNum.indexOf('-')+1)==1 || userNum.charAt(userNum.indexOf('-')+1)==2){
+                baseBirth = '19' + brithyear;
+                console.log(baseBirth);
+            } else{
+                baseBirth = '20' + brithyear;
+                console.log(baseBirth);
+            }
+            
+            // if (brith.slice(0,1)==9){
+            //     baseBirth = 1990 + Number(brith.slice(0,2));
+            //     console.log(baseBirth);
+            // } else {
+            //     baseBirth = 2000 + Number(brith.slice(0,2));
+            //     console.log(baseBirth);
+            // }
+            
+            let age = Number(today) - Number(baseBirth);
+            console.log(age);
+
+        }
+        
+    </script>
+</body>
+</html>

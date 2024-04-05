@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_iteration</title>
+</head>
+<body>
+    <h2>
+        배열이 순환할 수 있는 구조를 이용하여 특정 기능을 수행하는 메서드
+    </h2>
+    <ul>
+        <li>
+            array.forEach(callback function) :일반 반복문과 유사한 형태
+        </li>
+        <li>
+            array.map(callback function) <br>
+            forEach의 결과를 리턴해서 새로운 배열을 생성
+        </li>
+        <li>
+            array.filter(callback function) <br>
+            map 처럼 수행하면서 비교 연산을 통해 true 값만 필터링 하여 리턴
+        </li>
+    </ul>
+    <script>
+        const numArr = [3,5,4,1,2,8,7,6];
+        const strArr = ['g','a','t','e','d','f'];
+
+        console.log('--value, index, array--');
+        numArr.forEach(function(v,i,a){ //function에 들어가는 매개변수 순서는 변경할 수 없음
+            console.log(v, i, a);
+        });
+
+        console.log('-------------------------');
+
+        strArr.forEach(function(v,i,a){
+            console.log(v,i,a);
+        });
+
+        console.log('-- value, index --');
+        strArr.forEach(function(v,i){
+            console.log(i,v);
+        });
+
+        console.log('-- value --');
+        strArr.forEach(function(v){
+            console.log(v);
+        });
+
+        console.log('-- invoke callback function --')
+        function printNumber(v,i,s){
+            console.log(i,v,s);
+        }
+        numArr.forEach(printNumber);
+        console.log('-------------------------');
+        strArr.forEach(printNumber);
+
+        console.log('-- map() invork callback function --')
+        function printNumberMap(v,i,s){
+            return `${i}, ${v}, ${s}`; // 텍스트로 형을 바꿔서 리턴
+        }
+        const newArray = strArr.map(printNumberMap);
+        console.log(newArray);
+
+        console.log('-- map() --')
+        const newStrArr = strArr.map(function(v,i){ //리턴이 필요할 때는 map을 사용
+            return `${i}, ${v}`;
+        })
+        console.log(newStrArr);
+
+        const newStrArr2 = strArr.forEach(function(v,i){ // forEach > return 기능이 없음
+            return `${i}, ${v}`;
+        })
+        console.log(newStrArr2); // undefined
+
+        console.log('--- filter() ---')
+        const newNumArr = numArr.filter(function(v,i){
+            return v > 5;
+        })
+        console.log(newNumArr);
+    </script>
+</body>
+</html>

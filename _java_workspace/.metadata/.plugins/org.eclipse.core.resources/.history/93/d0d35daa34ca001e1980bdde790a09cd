@@ -1,0 +1,179 @@
+package Bar;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+
+public class Order extends Thread{
+	MenuManager mm = new MenuManager();
+	UserManager um = new UserManager(); // 고객 관리하는 시스템
+	User myUser = um.getMyUser(); // 로그인한 고객의 정보
+	//	ArrayList<MenuManager> alc = new ArrayList<>();//술메뉴
+	//	ArrayList<MenuManager> food = new ArrayList<>();//음식메뉴
+
+	private ArrayList<OrderSet> order = new ArrayList<>();
+	private int sum;
+	
+	public void orderPick(Scanner scan) {
+		while(UserManager.isLogin() ==true) {
+			mm.addMenu();
+			System.out.println("   주문하실 메뉴를 입력해주세요.");
+			String orderName = scan.next(); // 메뉴 list에서 주문할 메뉴 입력
+			for(int i=0; i<mm.alc.size(); i++) {
+				if(orderName.equals(mm.alc.get(i).getDrink())) {  
+					System.out.println("몇 잔 주문하시겠습니까? / 숫자로 입력해주세요.");
+					int cup = scan.nextInt();
+					int index=orderSearch(orderName);
+					if(index!=0-1) {
+						int price=order.get(index).getPrice();
+						order.get(index).setCnt(cup+(order.get(index).getCnt()));
+						order.get(index).setTotal(price+(order.get(index).getTotal()));
+						System.out.println("주문 추가가 완료되었습니다.");
+						return;
+					}
+					OrderSet o = new OrderSet();
+					if(orderName.contains(mm.alc.get(i).getDrink())) {
+						o.setName(orderName);
+						o.setCnt(cup);
+						o.setPrice(mm.alc.get(i).getPrice());
+						o.setTotal(o.getCnt()*o.getPrice());
+						this.order.add(o);
+						addOrder(scan);
+						return;
+
+					}
+				}
+
+			}
+
+			for(int j=0; j<mm.food.size(); j++) {
+				if(orderName.equals(mm.food.get(j).getFood())) {
+					System.out.println("해당 메뉴를 몇 개 주문하시겠습니까? / 숫자로 입력해주세요.");
+					int ea = scan.nextInt();
+					int index2=orderSearch(orderName);
+					if(index2!=-1) {
+						int price=order.get(index2).getPrice();
+						order.get(index2).setCnt(ea+(order.get(index2).getCnt()));
+						order.get(index2).setTotal(price+(order.get(index2).getTotal()));
+						System.out.println("주문 추가가 완료되었습니다.");
+						return;
+					}
+					OrderSet o = new OrderSet();
+					if(orderName.contains(mm.food.get(j).getFood())) {
+						o.setName(orderName);
+						o.setCnt(ea);
+						o.setPrice(mm.food.get(j).getPrice());
+						o.setTotal(o.getCnt()*o.getPrice());
+						this.order.add(o);
+						addOrder(scan);
+						return;
+					}
+				}
+
+			}
+			for(int i=0; i<mm.alc.size(); i++) {			
+				if(!orderName.equals(mm.alc.get(i).getDrink()) ||
+						orderName.equals(mm.food.get(i).getFood())) {
+					System.out.println("없는메뉴입니다.");
+					return;
+				}
+
+			}
+		}
+		System.out.println("로그인 후 진행 가능합니다.");
+	}
+
+	public int orderSearch(String orderName) {
+		//name=주문 메뉴
+		int index=-1;
+		for(int i=0; i<order.size(); i++) {
+			if(order.get(i).getName().equals(orderName)) {
+				index=i;
+				return index;
+			}	
+		}
+		return index;
+	}
+
+	public void addOrder(Scanner scan) { //추가주문
+
+		for(int i=0; i<mm.alc.size(); i++) {
+			System.out.println("추가로 주문하시겠습니까? > y / n");
+			String addO = scan.next();
+			if(addO.equals("y")) {
+				orderPick(scan);
+				return;
+			} else if(addO.equals("n")){
+				System.out.println("주문이 완료되었습니다.");
+				return;
+			}
+		}
+		return;
+
+
+	}
+	public void orderReceipt(Scanner scan) {
+		int cnt=0;
+//		int sum = 0;
+		System.out.println("   ===================== 영 수 증 =====================");
+		System.out.println("   상품명         단가          주문수량                금액");
+		for(int i=0; i<order.size(); i++) {
+			String name = order.get(i).getName();
+			int price = order.get(i).getPrice();
+			sum+=order.get(i).getTotal();
+			cnt=order.get(i).getCnt();
+			System.out.println("   "+name+"    "+order.get(i).getPrice()+"원          "+cnt+"개               "+(price*cnt)+"원");
+
+		}
+
+		System.out.println("   --------------------------------------------------");
+		System.out.println("   받을 금액 :                                   "+sum+"원");
+
+		LocalDateTime today = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("   yyyy/MM/dd hh:mm:ss");
+		System.out.println("   사업자번호 : 265-92-00112");
+		System.out.println("   주소 : 인천광역시 남동구 인주대로 593 엔타스빌딩 12층");
+		System.out.println("   전화번호 : 032-719-4074");
+		System.out.println("              "+dtf.format(today));
+
+		System.out.println();
+		System.out.println(sum);
+		System.out.println("계산하시겠습니다? y / n");
+		String newReceipt = scan.next();
+		if (newReceipt.equals("y")) {
+			if (um.getMyUser().getMoney() < sum) {
+				System.out.println("잔액이 부족합니다.");
+//				return;
+			} else {	
+				int sum2 = um.getMyUser().getMoney()-sum;
+				um.getMyUser().setMoney(sum2);
+				System.out.println("결제가 완료되었습니다.");
+				System.out.println("현재 남은 잔액 : " + um.getMyUser().getMoney());
+			}
+		} 
+//		return;
+		
+//		if (newReceipt.equals("n")){
+//			System.out.println("결제가 취소되었습니다.");
+//			return;
+//		}
+//		return;
+	}
+
+	public int getSum() {
+		return sum;
+	}
+
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("                           .    ");
+	}
+
+}

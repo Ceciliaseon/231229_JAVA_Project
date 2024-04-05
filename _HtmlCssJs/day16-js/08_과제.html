@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 구구단 문제 -->
+    <h1>
+        <button type="button" id="startBtn">문제 출제</button>
+    </h1>
+    <ol id="q"></ol>
+    <h1>
+        <button type="button" id="compareBtn">정답 확인</button>
+    </h1>
+    <h3 id="printRatio"></h3>
+
+    <script>
+        const ansObj={}; //정답을 담을 객체
+        let dan = 0; 
+        let incre = 0;  
+        
+        let str = '';
+        let cnt = 0; // 맞춘 개수
+        let current = 0;
+
+        function ranGu(){
+            for(let i=0;i<10;i++){
+                dan = Math.floor(Math.random()*9)+1;
+                incre = Math.floor(Math.random()*9)+1;
+                ansObj[`asn${i+1}`] = dan * incre;
+                str = `<li> ${dan} * ${incre} = <input type ="text" id="user${i}"></input>`
+                document.getElementById('q').innerHTML += str;
+                // console.log(str);
+            }
+        }
+
+        document.getElementById('startBtn').addEventListener('click',()=>{
+            document.getElementById('q').innerHTML = null;
+            document.getElementById('printRatio').innerHTML = null;
+            ranGu();
+            
+        })
+
+        // 정답 확인 라인
+        document.getElementById('compareBtn').addEventListener('click',()=>{
+            cnt = 0;
+            for(let i=0;i<10;i++){
+                let gard = document.getElementById(`user` +i);
+                if(ansObj[`asn${i+1}`] == Number(gard.value)){
+                    cnt++;
+                    gard.value += ' 정답!';
+                    gard.style.backgroundColor = 'green';
+                } else {
+                    gard.value += ' 오답!';
+                    gard.style.backgroundColor = 'red';
+                }
+            }
+            // console.log(`${ansObj[]} : ${gard}`);
+
+            document.getElementById('printRatio').innerHTML = `맞춘문제 : ${cnt}개 <br>
+            정답률 : ${cnt/10*100}%`;
+        })
+        //반복문
+
+    </script>
+</body>
+</html>

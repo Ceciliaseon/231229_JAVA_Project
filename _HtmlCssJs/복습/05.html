@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        tr, td{
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>구구단 (2~9단)</h1>
+    <button type="button" id="print">출력</button>
+    <table id="gugu">
+
+    </table>
+    <script>
+        function gugu(){
+            let gugu = document.getElementById('gugu');
+
+            let i=1;
+            let str='';
+            while(i<10){
+                str += '<tr>';
+                let dan = 2;
+                    while(dan<10){
+                        str += `<td>${dan}*${i}=${dan*i}</td>`
+                        dan++;
+                    }
+                i++;
+                str += '</tr>';
+            }
+            gugu.innerHTML = str;
+        }
+
+        document.getElementById('print').addEventListener('click',()=>{
+            gugu();
+        })
+    </script>
+    <br><hr>
+
+    <h3>약수 출력(1~100까지 입력한 숫자의 약수를 출력)</h3>
+    <input type="text" id="num">
+    <button type="button" id="btn">약수 출력</button>
+    <h3 id="result">
+        약수 값 출력 / 개수 <br>
+    </h3>
+    <script>
+        let r = document.getElementById('result').innerHTML;
+
+        function mltiple(num){
+
+            let str = `${r}`;
+            let cnt = 0;
+
+            for (let i=1;i<num;i++){
+                if(num%i==0){
+                    str+=`${i} `;
+                    cnt ++;
+                }
+            }
+            return `${str}<br> 총 ${cnt}개`;
+        };
+
+        document.getElementById('btn').addEventListener('click',()=>{
+            let num = document.getElementById('num').value;
+            let res = mltiple(num);
+            document.getElementById('result').innerHTML = res;
+            document.getAnimations('num').values ='';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+h1{
+    color: red;
+}
+.bule_text{
+    color: blue;
+}
+ul li{
+    color: pink;
+}
+#green-text{
+    color: green;
+}

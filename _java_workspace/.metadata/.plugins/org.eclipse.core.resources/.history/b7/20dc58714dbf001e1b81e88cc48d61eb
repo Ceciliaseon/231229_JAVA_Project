@@ -1,0 +1,26 @@
+package day18;
+
+public class WordMain {
+
+	public static void main(String[] args) {
+		/* 단어장 프로그램 작성
+		 * menu
+		 * 1. 단어 등록 | 2. 단어 검색 | 3. 단어 수정 | 4. 단어출력 | 5. 종료
+		 * WordManager 클래스를 생성하여 메서드 구현
+		 * map 을 이용해서 단어 등록
+		 * 기본단어 등록 (5가지 등록)
+		 * 
+		 * main > do~while문으로 메뉴가 반복 실행되도록 설정
+		 * 실제 구현은 메니저에서 작성
+		 * */
+		
+		int num = 0;
+		do {
+			
+		} while (num!=6);
+		System.out.println("종료");
+	}
+
+}
+
+

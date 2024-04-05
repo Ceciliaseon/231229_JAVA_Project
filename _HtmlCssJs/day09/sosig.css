@@ -1,0 +1,160 @@
+.sosig{
+    width: 100%;
+    height: 800px;
+    /* background-color: #caffeb; */
+    border-bottom: 1px solid #d9d9d9;
+}
+.sosig .contain{
+    width: 1170px;
+    height: 100%;
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+}
+.sosig .contain .top .main-text{
+    font-size: 35px;
+    padding-top: 90px;
+}
+.sosig .contain .top .sub-text{
+    font-size: 18px;
+    padding-top: 30px;
+}
+.left{
+    width: 465px;
+    height: 350px;
+    border: 1px solid #d9d9d9;
+    float: left;
+    margin-top: 85px;
+    padding: 40px;
+    text-align: left;
+    position: relative;
+}
+.sosig .contain .left .title{
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 30px;
+}
+.sosig .contain .left .news a{
+    color: black;
+}
+.newstext{
+    font-size: 20px;
+    /* text 넘어가는 데이터 ... 처리 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 넘어가는 부분 2줄 처리 no */
+    white-space: nowrap;
+    color: rgb(75, 75, 75);
+}
+.date{
+    padding-top: 70px;
+    padding-bottom: 30px;
+    font-size: 14px;
+    color: rgb(171, 170, 170);
+}
+.newslist{
+    border-top: 1px solid #d9d9d9;
+    padding-top: 30px;
+}
+.newslist a{
+    /* color: rgb(65, 65, 65); */
+    display: inline-block;
+    width: calc(100% - 110px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+.newslist a,
+.newslist span{
+    font-size: 14px;
+    color: rgb(65, 65, 65);
+}
+.newslist ul li{
+    padding: 10px 0;
+}
+.rigth{
+    float: right;
+    margin-top: 85px;
+    width: 462px;
+    position: relative;
+    /* border: 1px solid black; */
+}
+.left .more{
+    width: 20px;
+    height: 20px;
+    background-image: url(img/newsMoreBt_icon.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: black;
+}
+.left .more::before{
+    content: "더보기";
+    position: absolute;
+    top: 3px;
+    right: 20px;
+    width: 50px;
+}
+.rigth a{
+    color: black;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 300px;
+}
+.rigth .icon a:first-child{
+    float: left;
+    width: 280px;
+    height: 200px;
+    border: 1px solid #d9d9d9;
+    position: absolute;
+    right: 310px;
+    background: url(img/mainCon3_util1_img1.png) no-repeat center 40px;
+}
+.rigth .icon a:last-child{
+    float: right;
+    width: 280px;
+    height: 200px;
+    border: 1px solid #d9d9d9;
+    background: url(img/mainCon3_util1_img2.png) no-repeat center 40px;
+}
+.banner{
+    width: 530px;
+    height: 140px;
+    border: 1px solid #d9d9d9;
+    margin-top: 230px;
+    position: absolute;
+    right: 0px;
+    background: url(img/mainCon3_banner.jpg) no-repeat center;
+    background-size: cover;
+    padding: 30px;
+    /* box-sizing: border-box; */
+}
+.banner p, .banner a{
+    position: absolute;
+    color: white;
+}
+.banner p{
+    font-size: 28px;
+    line-height: 36px;
+    text-align: left;
+}
+.banner a{
+    top: -10px;
+    right: 410px;
+    font-weight: 700;
+}
+main{
+    position: relative;
+}
+main>.topbt {
+    position: absolute;
+    background-image: url(img/top_btn.png);
+    background-repeat: no-repeat;
+    bottom: -10px;
+    right: 80px;
+    width: 100px;
+    height: 50px;
+}

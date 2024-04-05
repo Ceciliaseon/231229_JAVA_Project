@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TeacherInfo</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/font.css">
+        <link rel="stylesheet" href="../css/teacher.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- 메뉴바 -->
+            <div class="menu"></div>
+            <!-- 페이지 소개 단락 -->
+            <!-- 선생님1 -->
+            <div class="t tea1">
+                <div class="tea_box box_1">
+                    <img src="../image/tea1.png" alt="" class="tea1_img">
+                    <div class="tea1_text">
+                        <ul class="ul">
+                            <li class="tea_name name1">강사명</li>
+                            <li class="tea_sub sub1">진행과목</li>
+                            <li class="tea_cur cur_1 t1_cur1">경력경력경력경력경력경력</li>
+                            <li class="tea_cur cur_1 t1_cur2">경력</li>
+                            <li class="tea_cur cur_1 t1_cur3">경력</li>
+                            <li class="tea_cur cur_1 t1_cur4">경력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="t tea2">
+                <div class="tea_box box_2">
+                    <img src="../image/tea1.png" alt="" class="tea2_img">
+                    <div class="tea2_text">
+                        <ul class="ul">
+                            <li class="tea_name name2">강사명</li>
+                            <li class="tea_sub sub2">진행과목</li>
+                            <li class="tea_cur cur_2 t2_cur1">경력</li>
+                            <li class="tea_cur cur_2 t2_cur2">경력</li>
+                            <li class="tea_cur cur_2 t2_cur3">경력</li>
+                            <li class="tea_cur cur_2 t2_cur4">경력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="t tea3">
+                <div class="tea_box box_3">
+                    <img src="../image/tea1.png" alt="" class="tea3_img">
+                    <div class="tea3_text">
+                        <ul class="ul">
+                            <li class="tea_name name3">강사명</li>
+                            <li class="tea_sub sub3">진행과목</li>
+                            <li class="tea_cur cur_3 t3_cur1">경력</li>
+                            <li class="tea_cur cur_3 t3_cur2">경력</li>
+                            <li class="tea_cur cur_3 t3_cur3">경력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="t tea4">
+                <div class="tea_box box_4">
+                    <img src="../image/tea1.png" alt="" class="tea4_img">
+                    <div class="tea4_text">
+                        <ul class="ul">
+                            <li class="tea_name name4">강사명</li>
+                            <li class="tea_sub sub4">진행과목</li>
+                            <li class="tea_cur cur_4 t4_cur1">경력</li>
+                            <li class="tea_cur cur_4 t4_cur2">경력</li>
+                            <li class="tea_cur cur_4 t4_cur3">경력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="t tea5">
+                <div class="tea_box box_5">
+                    <img src="../image/tea1.png" alt="" class="tea5_img">
+                    <div class="tea5_text">
+                        <ul class="ul">
+                            <li class="tea_name name5">강사명</li>
+                            <li class="tea_sub sub5">진행과목</li>
+                            <li class="tea_cur cur_5 t5_cur1">경력</li>
+                            <li class="tea_cur cur_5 t5_cur2">경력</li>
+                            <li class="tea_cur cur_5 t5_cur3">경력</li>
+                            <li class="tea_cur cur_5 t5_cur4">경력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="t tea5">
+                <div class="tea_box box_5">
+                    <img src="../image/tea1.png" alt="" class="tea5_img">
+                    <div class="tea5_text">
+                        <ul class="ul">
+                            <li class="tea_name name5">강사명</li>
+                            <li class="tea_sub sub5">진행과목</li>
+                            <li class="tea_cur cur_5 t5_cur1">경력</li>
+                            <li class="tea_cur cur_5 t5_cur2">경력</li>
+                            <li class="tea_cur cur_5 t5_cur3">경력</li>
+                            <li class="tea_cur cur_5 t5_cur4">경력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <footer></footer>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                const $counters = $(".tea_box");
+                console.log($counters);
+
+                const exposurePercentage = 100;
+                const loop = true;
+
+                $(window).on('scroll', function(){
+                    $counters.each(function(){
+                        const $el = $(this);
+                        console.log($el);
+
+                        const rect = $el[0].getBoundingClientRect();
+                        console.log(rect);
+                        const winHeight = window.innerHeight;
+                        console.log(winHeight);
+                        const contentHeight = rect.bottom - rect.top;
+                        console.log(contentHeight);
+
+                        console.log(rect.top);
+                        if(rect.top<=winHeight-(contentHeight*exposurePercentage/100)
+                        && rect.bottom>= (contentHeight*exposurePercentage/100)){
+                            $el.addClass('show');
+                        }
+                        if(loop&&(rect.bottom<=0)||rect.top>=window.innerHeight){
+                            $el.removeClass('show');
+                        }
+                        console.log(rect.top<=winHeight-(contentHeight*exposurePercentage/100));
+                    });
+                }).scroll();
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+.login{
+    border: 1px solid #000;
+    width: 400px;
+    padding: 15px;
+
+}
+.login input[type=text],
+.login input[type=email],
+.login input[type=password]{
+    width: 90%;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    padding-left: 30px;
+    
+    background-repeat: no-repeat;
+    background-position: center left 5px;
+}
+.login button{
+    width: 100%;
+    border: none;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.login input[type=text]{
+    background-image: url(/image/user.png);
+    background-size: 13px;
+}
+.login input[type=email]{
+    background-image: url(/image/email.png);
+    background-size: 13px;
+}
+.login input[type=password]{
+    background-image: url(/image/password.png);
+    background-size: 15px;
+}
+.login label{
+    display: block;
+    text-align: center;
+}
+
+.login label input [type=checkbox],
+.login label input [type=radio]{
+
+}

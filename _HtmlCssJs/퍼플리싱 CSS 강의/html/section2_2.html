@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02.선택자 적용 우선 순위가 중요한 이유(반응형 웹 미디어 쿼리 구문)</title>
+    <link rel="stylesheet" href="style_2.css">
+    <style>
+        /* h1{
+            color: yellowgreen !important;
+        } */
+    </style>
+</head>
+<body>
+    <!-- CSS 선택자 - 작용 우선순위 -->
+    <h1 class="bule_text" id="green-text" style="color: pink;">Heading</h1>
+    <div>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </div>
+    <p>Paragraph 3</p>
+    
+    <!-- 반응형 웹 미디어쿼리 구문 -->
+    <div class="contain">
+        <section class="about">
+            <h1>Section Heading</h1>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo quae labore inventore veniam ut vel quis suscipit quam, magni quas libero deleniti corrupti illo porro facere. Doloribus architecto mollitia blanditiis.
+            </p>
+        </section>
+    </div>
+</body>
+</html>

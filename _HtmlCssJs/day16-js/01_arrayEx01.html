@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const memberObject = {
+            name : 'hong',
+            age : 30,
+            married : true,
+            favors : ['Baseball', 'Game', 'Coffee', 'Movies', 'etc...']
+        };
+
+        const people=[];
+        // people에 memberObject를 5명 복사하여 추가 
+        for(let i=0;i<5;i++){
+            people.push(memberObject);
+            //객체 자체를 복사하는 것이 아니가 주소를 복사하기 때문에 값을 바꾸게 되면 전체적으로 변하게 된다
+            //모든 객체는 동일 한 객체라고 볼 수 있다
+        }
+        console.log(people);
+        
+        //people[1] name을 kim으로 변경
+        people[1].name = 'kim';
+        console.log(people);
+        
+        people[2].age = 45;
+        console.log(people);
+
+        //객체의 값을 빼서 console에 찍기
+        //배열 순회
+        //for of : 배열에 내용을 탐색할 때
+        //for in : 객체 안에 내용을 탐색할 때 
+        for(let member of people){
+            // console.log(member);
+            for(let keyName in member){
+                if(keyName!='favors'){
+                    console.log(keyName);
+                    console.log(member[keyName]);
+                } else {
+                    for(let fa of member[keyName]){
+                        console.log(fa);
+                    }
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

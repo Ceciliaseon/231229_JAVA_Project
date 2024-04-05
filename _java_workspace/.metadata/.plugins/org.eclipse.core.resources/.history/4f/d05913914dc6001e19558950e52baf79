@@ -1,0 +1,13 @@
+package Bar;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		
+		UserList ul = new UserList();
+		
+		ul.addUser(scan);
+
+	}
+
+}

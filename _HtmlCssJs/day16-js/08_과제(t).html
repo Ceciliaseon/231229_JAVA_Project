@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        <button type="button" id="startBtn">문제 출제</button>
+    </h1>
+    <ol id="q"></ol>
+    <h1>
+        <button type="button" id="compareBtn">정답 확인</button>
+    </h1>
+    <h3 id="printRatio"></h3>
+
+    <script>
+        const ansObj={};
+
+        const quizArea = document.getElementById('q');
+        let count = 0; // 전체개수
+        let correct = 0; //맞춘개수
+
+        document.getElementById('startBtn').addEventListener('click',()=>{
+            quizArea.innerHTML = '';
+
+            do{
+                count ++;
+                let dan = makeRandom(9,2);
+                let incre = makeRandom(9,1);
+                let answer = dan * incre; // 정답
+                ansObj[`ans${count}`] = answer;
+                //quiz영역에 뿌리기
+                let q = `<li> ${dan} * ${incre} = `;
+                    q+= `<input type = 'text' id ='userAns${count}'>`
+                    q+= `</li>`;
+                    quizArea.innerHTML += q;
+            }while(count <10);
+            console.log(ansObj)
+        })
+
+        //dna, incre
+        function makeRandom(max, min){
+            return Math.floor(Math.random()*(max-min+1))+min;
+        }
+
+    </script>
+</body>
+</html>

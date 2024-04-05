@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성  > 과목, 점수를 입력받음
+        map에 추가
+        출력 > map을 출력 ul/li 형태로 출력 html : 89 형태
+        결과 > 합계, 평균, 합격여부(평균이 60이상이면 합격) > h3
+     -->
+     
+     과목 : <input type="text" id="subject">
+     점수 : <input type="text" id="score"> <br>
+     <button type="button" id="add">추가</button>
+     <button type="button" id="print">출력</button>
+     <button type="button" id="result"> 결과</button>
+     
+     <ul id="total"></ul>
+     
+     <h3 id="final"></h3>
+     <script>
+        
+        
+        const map = new Map();
+        let cnt =0;
+
+        document.getElementById('add').addEventListener('click',()=>{
+            let subject = document.getElementById('subject').value;
+            let score =document.getElementById('score').value;
+            map.set(subject, score);
+            console.log(map, cnt);
+            cnt++;
+            document.getElementById('subject').value = '';
+            document.getElementById('score').value = '';
+        });
+        
+        document.getElementById('print').addEventListener('click',()=>{
+            
+            let r1 = '';
+            map.forEach(function(v,i){
+                r1 += `<li> ${i} : ${v}</li>`;
+                document.getElementById('total').innerHTML = r1;
+                // console.log(i,v);
+            });
+        });
+
+        document.getElementById('result').addEventListener('click',()=>{
+            let sumValue=0;
+            map.forEach(function(v,i){
+                sumValue += Number(v);
+                console.log(sumValue, cnt);
+            })
+            let avgValue=(sumValue/cnt).toFixed(2);
+            let re = (avgValue>60)?'합격':'불합격';
+            
+            let r2 = '';
+            r2 = `과목의 점수 합계 : ${sumValue}, 평균 ${avgValue}, 합격여부 : ${re} `
+            document.getElementById('final').innerText = r2;
+
+        })
+     </script>
+</body>
+</html>

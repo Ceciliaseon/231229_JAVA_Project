@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color</title>
+    <!-- 
+        색속성(color 관련 속성)
+        - color : 글자색
+        - background-color : 배경색
+        - broder-color : 테두리색
+
+        색 지정 방법
+        - 이미 지정된 이름을 사용하는 방법 : red, blue, black ...
+        - 색상 코드를 사용하는 방법 : 16진수 코드
+        - rgb코드를 사용하는 방ㅂ버 : rgb(255,0,0); rgb(0,255,0);
+        - rgba 코드 : a(투명도) 추가
+          a : 투명도 0~1 0.x
+     -->
+     <style>
+        div{
+            font-size: 20px;
+            font-weight: 700;
+            padding: 5px;
+            
+        }
+        .color{
+            color: red;
+        }
+        .bgcolor{
+            background-color: #03c75b96;
+        }
+        .border{
+            border: 1px solid black;
+            /* border-color: black; */
+        }
+        p{
+            font-size: 20px;
+            margin: 10px 0 ;
+        }
+        /* 
+            nth:child() : 내 자식의 모든 요소의 순번
+            nth-of-type : 해당 타입만 순번
+        */
+        p:nth-child(odd){
+            color: blueviolet;
+        }
+     </style>
+</head>
+<body>
+    <div class="color">글자색</div>
+    <div class="bgcolor">배경색</div>
+    <div class="border">테두리색</div>
+
+    <!-- p태그 3개를 생성 -->
+    <!-- 폰트 사이즈 20px 지정 -->
+    <!-- 1,3 폰트 색상 파랑으로 설정 -->
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        상하좌우 값이 있을 경우
+         margin : 10px > 전체 10px
+         margin : 10px 20px > 상하 / 좌우
+         margin : 10px 20px 30px > 상 / 좌우 / 하
+         margin : 10px 20px 30px 40px > 상 / 우 / 하 / 좌 (시계방향) 
+     -->
+    <style>
+        .back{
+            margin: 5%;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(142, 6, 6);
+            float: left;
+            margin: 5px;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            text-align: center;
+            position: relative;
+            border-radius: 10px;
+            line-height: 90px;
+        }
+        /* .back::after{
+            content: "";
+            clear: both;
+            display: block;
+        } */
+        .box:hover{
+            background-color: rgb(236, 127, 127);
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <div class="box">T</div>
+        <div class="box">H</div>
+        <div class="box">A</div>
+        <div class="box">N</div>
+        <div class="box">K</div>
+        <div class="box">S</div>
+    </div>
+</body>
+</html>

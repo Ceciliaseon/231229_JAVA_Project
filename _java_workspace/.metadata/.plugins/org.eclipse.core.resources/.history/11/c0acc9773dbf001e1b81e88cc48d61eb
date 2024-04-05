@@ -1,0 +1,14 @@
+package day18;
+
+public class MapEx01 {
+
+	public static void main(String[] args) {
+		/* map을 이용하여 상품과 가격을 추가하여 합계를 구하시오.
+		 * 상품을 map에 추가하는 작업은 메서드를 활용
+		 * 1. map을 main에 생성해놓고, 매개변수로 받아 map의 데이터를 채우는 메서드
+		 * 2. 
+		 * */
+
+	}
+
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/day04/style.css">
+</head>
+<body>
+    <h1>Travel</h1>
+    <div>
+        <!-- <button type="button" id="btn1">Home</button>
+        <button type="button" id="btn2">Seoul</button>
+        <button type="button" id="btn3">Tokyo</button>
+        <button type="button" id="btn4">Paris</button> -->
+        <a href="12_image.html">Home</a>
+        <a href="12_image.html">Seoul</a>
+        <a href="12_image.html">Tokyo</a>
+        <a href="12_image.html">Paris</a>
+    </div>
+
+    <div id="img">
+        <!-- 이미지가 들어갈 자리  -->
+        <img id="baseImg" src="../image/Travel_1.jpg" width="80%" height="500px">
+    </div>
+
+    <script>
+        const baseImg = document.getElementById('baseImg');
+        const aTag = document.getElementsByTagName('a');
+        console.log(baseImg);
+        console.log(aTag);
+
+        aTag.onclick=()=>{
+            aTag[0] = showImage(1);
+            console.log(aTag[0]);
+            aTag[1] = showImage(2);
+            aTag[2] = showImage(3);
+            aTag[3] = showImage(4);
+        }
+        function showImage(e){
+            for(e=0;e<4;e++){
+                baseImg.src = `../image/Travel_${e}.jpg`;
+            }
+            // let img = document.getElementById('img');
+            // let index = 0;
+            // if(index < 4){
+                
+            // }
+        }
+    </script>
+</body>
+</html>

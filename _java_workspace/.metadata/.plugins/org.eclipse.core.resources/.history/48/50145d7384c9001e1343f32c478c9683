@@ -1,0 +1,62 @@
+package Bar;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class AddMoney{
+	// 로그인을 한 사용자가 본인 계정에 돈을 입금하고, 환불하고, 잔액을 조회하는 클래스
+
+	private User money = ;
+
+	public void addMoney(Scanner scan){
+
+		int m = money.getMoney();        	
+		while(UserManager.isLogin()==true) {
+			System.out.println();
+			System.out.println("             Cocktail Bar Cash");
+			System.out.println("   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");        		
+			System.out.println("     1.충전 | 2. 환불 | 3. 잔액 조회 | 4. 종료");
+			int s = scan.nextInt();
+
+			switch (s) {
+			case 1:
+				System.out.println("입금액 > ");
+				int amonut = scan.nextInt();
+				money+=amonut;
+				System.out.println("--충전 완료--");
+				System.out.println("잔액:"+ money );
+				break;
+			case 2:
+				System.out.println("인출액 >>");
+				int minus = scan.nextInt();
+				if (money < minus) {
+					System.out.println("잔액부족, 환불 불가합니다.");
+					break;
+				}
+				money -=minus;
+				System.out.println("--인출 완료--");
+				System.out.println("잔액 :"+ money);
+				break;
+			case 3:
+				System.out.println("--현재 잔액--");  
+				System.out.println("잔액 : "+money);
+				break;
+			case 4:
+				System.out.println("충전 종료");
+				return;
+			default:
+				System.out.println("잘못 입력하였습니다.");
+				break;
+			}
+		}
+		System.out.println("로그인 후 진행 가능합니다.");
+	}
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+}  

@@ -1,0 +1,37 @@
+package day18;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+import org.xml.sax.HandlerBase;
+
+public class MapEx02 {
+
+	public static void main(String[] args) {
+		
+		/* 단어장
+		 * 단어 5개를 입력받아서 콘솔에 출력하는 기능
+		 * 
+		 * --단어장--
+		 * hello : 안녕
+		 * apple : 사과
+		 * orange : 오렌지 ...
+		 * 
+		 * map에 저장 후 출력
+		 * */
+		
+		Scanner sc = new Scanner (System.in);
+		
+		HashMap<String, String> map = new HashMap<>();
+		
+		System.out.println("--단어장--");
+		for (int i=0;i<5;i++) {
+			map.put(sc.next(), sc.next());
+		}
+		
+		for (String s : map.keySet()) {
+			System.out.println(s+":"+map.get(s));
+		}
+	}
+
+}

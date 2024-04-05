@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+        #wapper h2{
+            text-align: center;
+        }
+        #wapper form{
+            background-color: rgb(0, 135, 90);
+            color:  white;
+            text-align: center;
+            padding: 30px 40px;
+        }
+        input{
+            width: 300px;
+            /* height: 30px; */
+            border: none;
+            outline: none;
+            border-radius: 2px;
+            font-size: 16px;
+            padding: 10px;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            background-color: white;
+            box-shadow: 2px 2px 2px rgb(85, 85, 85);
+            font-size: 14px;
+        }
+        #wapper div ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #wapper div ul li{
+            cursor: pointer;
+            padding: 12px 12px;
+            background-color: yellowgreen;
+            position: relative;
+        }
+        #wapper div ul li:nth-child(odd){
+            background-color: rgb(208, 228, 168);
+        }
+        #wapper div ul li:hover{
+            background-color: beige;
+        }
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            /* background-color: aliceblue; */
+            padding: 12px 20px;
+            transition: 0.3s;
+        }
+        .close:hover{
+            background-color: rgb(98, 147, 1);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="wapper">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" class="a b c list" id="add">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+    <script>
+        //추가하는 목록을 저장, 삭제한 목록을 제거 (저장공간)
+        let itemList=[];
+
+        //하나의 기능만 한다면 아래와 같은 형태로 작성해도 됨
+        document.getElementById('add').addEventListener('click', addList);
+
+        // 아이템 추가 : 입력받은 item을 배열에 추가
+        function addList(){
+            let item = document.getElementById('item');
+            // console.log(item.value);
+            if (item.value !==''){
+                itemList.push(item.value);
+                console.log(itemList);
+                item.value = ''; // 추가 후 item 값을 비우기
+                item.focus(); // item에 focus 두기
+                // 추가 후 화면에 뿌리기
+                showList()
+            } else {
+                alert('아이템 값이 없습니다.')
+            }
+        }
+
+        // 아이템을 화면에 뿌리는 역할 : 배열에 있는 목록을 화면에 모두 뿌리기
+        function showList(){
+            let list = ''; // 뿌릴 텍스트 리스트
+            for(let i=0;i<itemList.length;i++){
+                list += `<li id='list${i}'>${itemList[i]}
+                        <span class='close' id ='${i}'>X</span></li>`;
+            }
+            document.getElementById('itemList').innerHTML = list;
+        }
+
+        // item 삭제 : 배열에서 해당 아이템 삭제
+        document.addEventListener('click',(e)=>{
+            console.log(e.target.classList);
+            if(e.target.classList.contains('close')){
+                // x 버튼을 클릭했다 > 라는 의미
+                console.log('111'); 
+                let i = e.target.id;
+                console.log(i); 
+                itemList.splice(i,1);
+            }
+            // 삭제 후 리스트 뿌리기
+            showList();
+        })
+    </script>
+</body>
+</html>

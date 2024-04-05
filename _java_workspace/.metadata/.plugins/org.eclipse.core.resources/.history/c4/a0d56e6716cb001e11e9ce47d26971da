@@ -1,0 +1,15 @@
+
+public class Card2 {
+	
+	private int num;
+	private char shape;
+	
+	public Card2 () {
+		this.num = 1;
+		this.shape = '◆';
+	}
+	
+	public void print () {
+		
+	}
+}

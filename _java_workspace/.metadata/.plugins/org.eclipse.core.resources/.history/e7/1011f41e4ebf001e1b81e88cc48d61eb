@@ -1,0 +1,14 @@
+package day18;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class WordManager {
+	
+	public void MakeWord(Scanner sc) {
+		
+		HashMap<String, String> map = new HashMap<>();
+		
+		
+	}
+}

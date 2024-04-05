@@ -1,0 +1,57 @@
+
+class CardPack2 {
+
+
+	private Card2 [] Cardpack2 = new Card2 [52];
+	private int a;
+
+	public CardPack2 () {
+		
+		char shape = '◆';
+		for (int i=1;i<=4;i++) {
+			switch (i) {
+			case 1 : shape = '♥'; break;
+			case 2: shape = '♥'; break;
+			case 3: shape = '◆'; break;
+			case 4: shape = '♠'; break;
+			}
+			for (int j=1;j<13;j++) {
+				Card2 c2 = new Card2();
+				c2.setShape(shape);
+				c2.setNum(j);
+				Cardpack2[a] = c2;
+				a++;
+			}
+		}
+	}
+	
+	public void random () {
+		for (int i=0;i<Cardpack2.length;i++) {
+			int random = (int)(Math.random()*Cardpack2.length);
+			Card2 tmp = Cardpack2[i];
+			Cardpack2[i] = Cardpack2[random];
+			Cardpack2[random] = tmp;
+		}
+	}
+	
+	public Card2 put() {
+		if (a==0){
+			return null;
+		}
+		a--;
+		return Cardpack2[a];
+	}
+	
+	public Card2[] getCardpack2() {
+		return Cardpack2;
+	}
+
+	public void setCardpack2(Card2[] cardpack2) {
+		Cardpack2 = cardpack2;
+	}
+
+	public static void main(String[] args) { // 확인
+
+	}
+
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background 속성</title>
+    <!-- 
+        background 배경속성
+        - 배경색 : bg-color
+        - 배경이미지 : bg-image
+        - 배경색과 배경 이미지를 같이 지정하면 배경이미지가 우선 출력
+        - 이미지 사이즈에 출력 되지 못하는 부분은 배경색으로 출력
+        - 배경이미지 크기 : bg-size
+        - 배경이미지 반복 : bg-repeat
+          - no-repeat : 반복 x
+          - repeat-x : x축(가로)으로만 반복
+          - repear-y : y축(세로)으로만 반복
+          - round : 양쪽반복(기본)
+        - 배경 이미지 위치 : bg-position
+          - center : 가운데 정렬
+          - x축, y축 값으로 주면 원하는 위치로 설정
+        - background : color image position size repeat 순으로 입력
+    -->
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: rgb(240, 255, 244);
+            background-image: url(../image/강아지1.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: 5px 5px 5px #ddd;
+        }
+        .box2{
+            margin-top: 10px;
+            width: 300px;
+            height: 300px;
+            background-color: beige;
+            background-image: url(../image/강아지2.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            box-shadow: 4px 4px 5px #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+</html>

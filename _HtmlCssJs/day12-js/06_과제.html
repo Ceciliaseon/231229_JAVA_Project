@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        이름 <input type="text" id="name"> <br>
+        주민번호 : <input type="text" id="userNum"> <br>
+        <button type="button" onclick="datas()">확인</button>
+    </form>
+    <h3 id="print"> </h3>
+    <script>
+        
+        const print = document.getElementById('print');
+        function datas(){
+                       
+            let name = document.getElementById('name').value;
+            let userNum = document.getElementById('userNum').value;
+            
+            // 생년월일
+            let birth = userNum.substring(0,userNum.indexOf('-'))
+
+            // 나이
+            let today = new Date().getFullYear();
+            let baseyear = null;
+            let brithyear = birth.slice(0,2);
+            if(userNum.charAt(userNum.indexOf('-')+1)==1 ||userNum.charAt(userNum.indexOf('-')+1)==2){
+                baseyear = '19' + brithyear;
+            } else{
+                baseyear = '20' + brithyear;
+            }
+
+            if (birth.slice(0,1)==9){
+                baseBirth = 1990 +Number(birth.slice(0,2));
+            }else {
+                baseBirth = 2000 +Number(birth.slice(0,2));
+            }
+            let age = Number(today)-Number(baseyear);
+
+            
+            // 성별
+            let gender = userNum.charAt(userNum.indexOf('-')+1)
+            
+            if (gender ==='1' || gender === '3'){
+                gender = '남';
+            } else {
+                gender = '여';
+            };
+
+            print.innerHTML = `이름 : ${name}, 생년월일 : ${birth}, 나이 : ${age}, 성별 : ${gender}`;
+            
+            // // 선생님 풀이 
+            // let now = new Date();
+            // // 주민등록번호
+            // // 980101-1234567 => 1900대
+            // // 010101-1234567 => 2000대
+            // // 기준 - 다음숫자  1,2 1900 / 3,4 2000
+            // let name = document.getElementById('name').value;
+            // let userNum = document.getElementById('userNum').value;
+            // // 이름, 생년월일, 나이, 성별
+            // // 생년월일
+            // let birth = userNum.substring(0,userNum.indexOf('-'));
+            // console.log(birth);
+
+            // // 성별
+            // let gender = userNum.charAt(userNum.indexOf('-')+1);
+            // let mw = (gender =='1' || gender == '3')? '남': '여';
+
+            // // 나이
+            // // 오늘날짜의 연도 - 태어난 연도
+            // // 2024-(2000+01) / 2024-(1900+99)
+            // let year = now.getFullYear();
+            // let brithyear = Number(birth.substring(0.2));
+            // let age = (gender <=2)? year-(1900+brithyear):year-(2000+brithyear);
+
+            // document.getElementById('print').innerText = 
+            // `이름 : ${name}, 생년월일 : ${birth}, 나이 : ${age}, 성별 : ${mw}`;
+
+        } 
+           
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+
+public class CardPack2 {
+
+	public static void main(String[] args) {
+		
+		Card2 [] pack2 = new Card2 [52];
+		
+	}
+
+}

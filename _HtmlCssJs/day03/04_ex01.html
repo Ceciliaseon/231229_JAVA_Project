@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        div 3개 만들어
+        naver, google, daum 사이트로 연결되게 하고
+        - 새창이 띄어지도록 연결
+        - 각각의 div 색을 달리하여 스타일 주기
+        - 링크 색도 변경
+
+        ul > li*10 1~10까지 쓰고 
+        - 짝수만 빨간색
+        - 3,6,9 : 초록색
+        - 1,10 : 굵게 처리
+        뒤쪽 요소에 . 추가
+
+        a태가 의사 선택자 순서 
+        a:link > a:visited > a:active
+     -->
+     <style>
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        a:link{
+            color: black;
+        }
+        a:visited{
+            color: #fff;
+        }
+        a:hover{
+            color: black;
+        }
+        a:active{
+            color: red;
+        }
+        /* block 태그 : 넓이 높이를 가질 수 있음 */
+        div{
+            width: 70px;
+            text-align: center;
+            margin: 5px;
+            padding: 5px;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+        .naver{
+            background-color: #03c75a;
+        }
+        .google{
+            background-color: rgb(255, 183, 59);
+        }
+        .daum{
+            background-color: #4881F7;
+        }
+        ul li:nth-child(even){
+            color: red;
+        }
+        ul li:nth-of-type(3n){
+            color: rgb(57, 190, 57);
+        }
+        ul li:first-child, ul li:last-child{
+            font-weight: 700;
+        }
+        ul{
+            padding-left: 5px;
+        }
+        ul li{
+            list-style: none;
+            display: inline;
+        }
+        ul li::after{
+            content: ". ";
+        }
+        
+     </style>
+</head>
+<body>
+    <div class="naver">
+        <a href="http://naver.com" target="_blank">Naver</a>
+    </div>
+    <div class="google">
+        <a href="http://google.com" target="_blank">Google</a>
+    </div>
+    <div class="daum">
+        <a href="http://daum.net" target="_blank">Daum</a>
+    </div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+</body>
+</html>

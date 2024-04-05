@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적 확인서</legend>
+                <p>이름 <input type="text" id="name"></p>
+                <p>국어 <input type="text" id="kor"></p>
+                <p>수학 <input type="text" id="mat"></p>
+                <p>영어 <input type="text" id="eng"></p>
+                <button type="button" id="btn">성적 계산</button>
+            </fieldset>
+    </form>
+    <h3 id="result">
+        <!-- 이름, 합계, 평균, 합격여부(60이상이면 pass / fail) -->
+        <!-- 입력한 성적한 점수값이 0~100점 사이의 값이 아니면 alert 창 띄워 안내 -->
+    </h3>
+
+    <script>
+        document.getElementById('btn').addEventListener('click',()=>{
+            let name = document.getElementById('name').value;
+            let kor = document.getElementById('kor').value;
+            let mat = document.getElementById('mat').value;
+            let eng = document.getElementById('eng').value;
+            
+            //함수넣었을 떄
+            if(check(kor)&& check(eng)&& check(mat)){
+                let sum = Number(kor)+Number(eng)+Number(mat);
+                let avg = (sum/3).toFixed(2);
+                let acount = (avg >=60)?'pass':'fail'
+                
+                document.getElementById('result').innerText = 
+                `이름 : ${name}, 합계 : ${sum}, 평균 : ${avg}, 합격여부 : ${acount}`;
+            }
+
+            /*let sum = Number(kor)+Number(eng)+Number(mat);
+            let avg = (sum/3).toFixed(2);
+            let avgprint;
+            if (avg >=60){
+                avgprint = 'pass';
+            }else{
+                avgprint = 'fail';
+            }
+
+            console.log(`이름 : ${name} 합계 : ${sum} 평균 : ${avg} 합격여부 : ${avgprint}`)
+
+            if((kor<0 || mat<0 || eng< 0) || (kor>100 || mat>100 || eng>100)){
+                alert('점수 입력이 잘못되었습니다. (0~100사이의 숫자)');
+                document.getElementById('kor').value = '';
+                document.getElementById('mat').value = ''; 
+                document.getElementById('eng').value = '';   
+                document.getElementById('result').innerText = '';
+            } else {
+                document.getElementById('result').innerText = 
+                `이름 : ${name}, 합계 : ${sum}, 평균 : ${avg}, 합격여부 : ${avgprint}`
+            }*/
+        })
+
+        function check(num){
+            if(num < 0 || num > 100){
+                alert('0~100사이의 값을 입력해주세요');
+                //점수의 값을 비워야 함
+                document.getElementById('kor').value = '';
+                document.getElementById('mat').value = ''; 
+                document.getElementById('eng').value = '';
+                document.getElementById('result').innerText = '';
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+            
+        
+    </script>
+</body>
+</html>

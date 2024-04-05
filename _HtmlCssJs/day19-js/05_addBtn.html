@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- (T)풀이 -->
+    <button type="button" id="btnclick">엘리먼트 만들기</button>
+    <div id="btnadd"></div>
+    <script>
+        document.getElementById('btnclick').addEventListener('click',()=>{
+            let newBtn = `<button type="button" id="newBtn">생성된 버튼</button>`
+            document.getElementById('btnadd').innerHTML = newBtn;
+            //이 위치에서는 newBtn 인식
+        });
+
+        //newBtn 인식 불가능
+        //동적으로 생성된 엘리먼트에 이벤트 부여
+        //문서 전체에 리스너를 장착 앨리먼트 선택
+        document.addEventListener('click',(e)=>{
+            if(e.target.id == 'newBtn'){
+                document.getElementById('btnadd').innerHTML += 
+                `<h3>생성된 버튼 클릭</h3>`;
+            }
+        })
+    </script>
+</body>
+<!-- <body>
+    <button type="button" id="btnclick">엘리먼트 만들기</button>
+    <div id="btnadd"></div>
+    <h1 id="result"></h1>
+    <script>
+        const btn = document.getElementById('btnadd');
+        const res = document.getElementById('result');
+        document.getElementById('btnclick').addEventListener('click',()=>{
+            btn.innerHTML = 
+            `<button id="btn2">생성된버튼</button>`;
+            document.getElementById('btn2').addEventListener('click',()=>{
+                res.innerText = `생성된 버튼 클릭`;
+            })
+        })
+    </script>
+</body> -->
+</html>

@@ -1,0 +1,131 @@
+@font-face {
+    font-family: NanumSquareR;
+    src: url(/font/나눔스퀘어/NanumSquareR.ttf);
+}
+body{
+    min-width: 800px;
+    font-family: NanumSquareR;
+}
+.wrap{
+    width: 100%;
+    min-width: 1200px;
+}
+header{
+    width: 70%;
+    height: 100px;
+    margin: 20px auto 10px;
+    /* position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white; */
+}
+header img{
+    float: left;
+    margin-top: 10px;
+    /* padding-left: 350px; */
+}
+.top-nav{
+    font-size: 13px;
+    float: right;
+}
+.top-nav a{
+    color: rgb(64, 64, 64);
+}
+.top-nav a::after{
+    content: " | ";  
+    padding: 0 8px;
+    color: rgb(198, 198, 198);
+}
+.top-nav a:nth-child(2)::after,
+.top-nav a:nth-child(3)::after{
+    content: none;
+}
+.top-nav a:nth-child(1):hover,
+.top-nav a:nth-child(2):hover{
+    color: #1C7C57;
+}
+.top-nav a:last-child{
+    padding-left: 20px;
+}
+.top-nav a:last-child:hover{
+    font-weight: 700;
+}
+.header{
+    position: relative;
+}
+.bottom-nav{
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.bottom-nav a{
+    color: black;
+    margin: 0 30px;
+    font-weight: 700;
+    font-size: large;
+}
+.bottom-nav a:hover{
+    color: #1C7C57;
+}
+section{
+    width: 100%;
+    height: 725px;
+    background-image: url(/day09/img/민속박물관_img.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+section a img{
+    position: absolute;
+}
+section a img:first-child{
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+section a img:last-child{
+    top: 50%;
+    left: 90%;
+    transform: translateY(-50%);
+}
+.main{
+    width: 100%;
+}
+.con-box:first-child{
+    height: 80px;
+    /* background-color: #caffeb; */
+    position: relative;
+}
+.con-box:first-child a{
+    color: black;
+}
+.con-box:first-child .time{
+    position: absolute;
+    width: 600px;
+    height: 40px;
+    /* border: 1px solid black; */
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.con-box:first-child .time img{
+    width: 35px;
+    height: 35px;
+}
+.con-box a .time p:nth-of-type(1),
+.con-box a .time p:nth-of-type(3),
+.con-box a .time p:nth-of-type(5){
+    font-weight: 700;
+}
+.con-box a .time p:nth-of-type(3)::after{
+    content: " |";
+    padding-left: 25px;
+    color: rgb(198, 198, 198);
+    font-weight: 100;
+
+}
+

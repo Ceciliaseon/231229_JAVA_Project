@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>up down game</h1>
+    <button type="button" id="comRan">랜덤 숫자 생성 버튼</button>
+    <button type="button" id="reset"> 다시시도</button>
+    <h2 id="comResult"></h2>
+
+    <input type="text" id="num"> 
+    <button type="button" id="btn">정답!!</button>
+    <h2 id="palyerResult"></h2>
+
+    <script>
+        // 랜덤 숫자 생성
+        let comRan = Math.floor(Math.random()*99)+1;
+        let cnt = 0; // 시도 횟수
+        
+        // 랜덤 숫자 생성 버튼 클릭
+        document.getElementById('comRan').addEventListener('click',()=>{
+            console.log(comRan);
+            document.getElementById('comResult').innerText =
+            `컴퓨터가 랜덤수(1~99)를 생성했습니다.`;
+        })
+        // input & num 클릭
+        document.getElementById('btn').addEventListener('click',()=>{
+            let num = document.getElementById('num').value;
+            cnt++;
+            let r1 = ''; // 출력 
+            
+            if(num==comRan){
+               r1 = `시도횟수 ${cnt}, 정답입니다. 컴퓨터 숫자는 ${comRan} 였습니다.`;
+            }else if (num < comRan){
+                r1 = `시도횟수 ${cnt}, up!!`;
+            }else{
+                r1 = `시도횟수 ${cnt}, down!!`;
+            }
+            document.getElementById('palyerResult').innerText = r1;
+        })
+    </script>
+</body>
+</html>

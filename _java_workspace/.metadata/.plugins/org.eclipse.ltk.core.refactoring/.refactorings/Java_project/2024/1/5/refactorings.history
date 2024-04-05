@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;day17.passwordExecption&apos; to &apos;PasswordExecption&apos;&#x0D;&#x0A;- Original project: &apos;Java_project&apos;&#x0D;&#x0A;- Original element: &apos;day17.passwordExecption&apos;&#x0D;&#x0A;- Renamed element: &apos;day17.PasswordExecption&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;passwordExecption&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;day17{passwordExecption.java[passwordExecption" matchStrategy="1" name="PasswordExecption" qualified="false" references="true" similarDeclarations="false" stamp="1706511585980" textual="false" version="1.0"/>
+</session>

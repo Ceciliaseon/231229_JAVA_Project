@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button> <br>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button> <br>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button> <br>
+            <button type="button" value=".">.</button>
+            <button type="button" value="+">+</button>
+            <button type="button" value="-">-</button> <br>
+            <button type="button" value="*">*</button>
+            <button type="button" value="/">/</button>
+            <button type="button" value="=">=</button>
+            <button type="button" value="c">C</button>
+        </div>
+        <h1 id="printResult"></h1>
+    </div>
+    <script> // 선생님 풀이
+        const printResult = document.getElementById('printResult');
+        let printValue = '';
+
+        document.querySelector('.container').addEventListener('click',(e)=>{
+            console.log(e.target.value);
+            let btnValue = e.target.value;
+            console.log(isNaN(btnValue)); //isNaN > 숫자가 아닌지 체크
+            if(!isNaN(btnValue)){ //숫자일 경우
+                printValue += btnValue;
+            } else { // 숫자가 아니라면
+                // 숫자가 아닌 케이스 ( _ - * / . = C undefined)
+                if(btnValue != undefined){
+                    switch(btnValue){
+                        case 'c' :
+                            printValue =''; // 변수 안에 값을 초기화
+                            printResult.innerText = ''; // 그 전 결과도 초기화
+                            break;
+                        case '.' : 
+                            // 기존 값에 붙이기
+                            printValue += btnValue;
+                            break;
+                        default : 
+                            let result = '';
+                            if(btnValue == '='){
+                                // 계산하기 
+                                result = extractiValue(printValue);
+                                printValue = result;
+                                btnValue=''; //버튼 value 의 값x
+                            } else {
+                                printValue += ` ${btnValue} `; //양옆의 공백 
+                            }
+                            break;
+                    }
+                }
+            }
+            printResult.innerText = printValue;
+        })
+
+        function operation(f,o,l){
+            let result = 0;
+            switch(o){
+                case '+' : result = f + l; break;
+                case '-' : result = f - l; break;
+                case '*' : result = f * l; break;
+                case '/' : result = f / l; break;
+                default : break;
+            }
+            console.log(result);
+            return result.toFixed(2);
+        }
+
+        function extractiValue(strValue){
+            //substring (시작번지, 끝번지)
+            //substr(시작번지, 개수)
+            console.log(strValue);
+            let firstNum = strValue.substring(0,strValue.indexOf(' '));
+            let lastNum = strValue.substring(strValue.lastIndexOf(' ')+1); 
+            let op = strValue.substr(strValue.indexOf(' ')+1, 1); // 1글자만
+            console.log(op);
+            console.log(strValue);
+            console.log(firstNum, op, lastNum);
+            return operation(Number(firstNum), op, Number(lastNum));
+        }
+        
+    </script>
+
+    <!-- <script>
+        const button = document.querySelectorAll('button'); // 전체 버튼 도큐먼트
+        // console.log(button.value);
+        const opts = document.querySelectorAll('opt'); // 연산자 
+        const result = document.getElementById('printResult'); // 화면 출력 
+
+        let operation = ''; // + - * / 연산자를 담을 변수
+        let Number1 = ''; // 이전 값
+        let Number2 = ''; // 최근 값
+        let numSet = new Set();
+
+        function num(num){
+            button.value += num;
+        }
+        // 계산 함수
+        function calcate(num1, op, num2){
+            let result = 0;
+            switch(op){
+                case '+' : result = Number(num1) + Number(num2); break;
+                case '-' : result = Number(num1) - Number(num2); break;
+                case '*' : result = Number(num1) * Number(num2); break;
+                case '/' : result = Number(num1) / Number(num2); break;
+                default : result = 0; break;
+            }
+            return String(result.toFixed(2)); // 연산을 한 결과 값을 출력
+            // console.log(result.toFixed(2));
+            // document.getElementById('printResult').innerText = String(result.toFixed(2));
+        };
+
+        function oper(op){
+            op
+        }
+        
+
+        document.querySelector('.container').addEventListener('click',(e)=>{
+            let result2 = '';
+            result2 = e.target.value;
+            numSet.forEach(function(v){
+                v=e.target.value;
+                numSet.add(v);
+                console.log('---')
+                console.log(v);
+                result2+=v;
+            }) 
+            
+            // console.log(result2);
+            let num1 = '';
+            let num2 = '';
+            let total = '';
+            
+            if(result2 != undefined){ //value 값이 undefined가 아닐때
+                if (result2 == '+' || result2 == '-' || result2 == '*' || result2 == '/'){
+                    
+                }
+            } 
+            if (result2 == '+' || result2 == '-' || result2 == '*' || result2 == '/'){
+                num1 = result2.cha(0,result2.indexOf('+' || '-' || '*' || '/')) ;
+                num2 = result2.lastIndexOf('+' || '-' || '*' || '/');
+                // console.log(num1, num2);  
+                // total += calcate(num1, result2, num2);
+            } else{
+
+            }
+            if (result2 == '='){
+                    // calcate(num1, result2, num2);
+                    // console.log(total);
+            }
+
+            // console.log(result2);
+            if(result2 == '='){
+                calcate()
+            }
+            document.getElementById('printResult').innerText += e.target.value;
+
+        })
+
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,7 @@
+
+public class Card2 {
+	
+	private int num;
+	private char shape;
+	
+}

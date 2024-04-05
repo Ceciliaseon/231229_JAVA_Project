@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <p>가격 : <input type="text" id="price">원</p>
+        <p>할인율 : <input type="text" id="pursent">%</p>
+        <button type="button" onclick="priceresult()">할인가격 계산</button>
+    </form>
+    <h3 id="pi"></h3>
+    <script>
+        function priceresult(){
+            const pi = document.getElementById('pi');
+
+            let price = parseInt(document.getElementById('price').value);
+            let pursent = Number(document.getElementById('pursent').value);
+            
+            let priceinto = price*(pursent/100);
+            let total = price-priceinto;
+
+            pi.innerText = `가격: ${price}, 할인률 : ${pursent}%, 할인금액 : ${priceinto}, 지불금액 ${total}`;
+        }
+    </script>
+    
+</body>
+</html>

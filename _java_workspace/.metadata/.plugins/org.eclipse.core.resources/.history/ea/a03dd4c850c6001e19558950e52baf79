@@ -1,0 +1,25 @@
+package Bar;
+
+import java.util.Scanner;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner (System.in);
+		UserList ul = new UserList();
+		
+		int menu = 0;
+		do {
+			System.out.println("선택");
+			menu=scan.nextInt();
+			switch (menu) {
+			case 1 : ul.addUser(scan); break;
+			case 2 : ul.logIn(scan); break;
+			case 3 : ul.myPage(scan); break;
+			}
+		}while(menu != 3);
+		System.out.println("시스템 종료");
+	}
+
+}

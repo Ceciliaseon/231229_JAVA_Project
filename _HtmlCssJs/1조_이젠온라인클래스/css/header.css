@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'NanumSquareB';
+    src: url(../font/nanum-square/NanumSquareB.ttf);
+}
+@font-face {
+    font-family: 'NanumSquareEB';
+    src: url(../font/nanum-square/NanumSquareEB.ttf);
+}
+
+.inner{
+    /* background-color: rgb(215, 246, 250); */
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* header */
+header{
+    top: 0;
+    position: sticky;
+    z-index: 1;
+    background-color: #dfeefa;
+}
+.container>header>.inner>form>a{
+    display: flex;
+    justify-content: center;
+}
+.container>header>.inner>form>a>img{
+    width: 120px;
+    height: 100px;
+}
+.container>header>.inner>form>nav{
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #0f426c;
+}
+.container>header>.inner>form>nav>#menuBar{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 10px 0;
+}
+.container>header>.inner>form>nav>#menuBar>li{
+    margin: 0 24px;
+    width: 240px;
+    text-align: center;
+}
+.container>header>.inner>form>nav>#menuBar>li>a{
+    font-size: 20px;
+    text-decoration-line: none;
+    line-height: 80px;
+    color: white;
+    font-family: 'NanumSquareEB';
+}
+.container>header>.inner>form>nav>#menuBar>li>.menu>.menuLine{
+    height: 0;
+    overflow: hidden;
+    border-bottom: 15px solid rgba(0, 0, 0, 0.580);
+    border-radius: 20px;
+}
+/* hover 메뉴바 아래로 내려오게 */
+.container>header>.inner>form>nav>#menuBar>li:first-child>.menu>.menuLine:hover{
+    background-color: #0f426c;
+    width: 100%;
+    height: 300px;
+    transition: 0.8s;
+}
+.container>header>.inner>form>nav>#menuBar>li:nth-child(2)>.menu>.menuLine:hover{
+    background-color: #0f426c;
+    width: 100%;
+    height: 70px;
+    transition: 0.8s;
+}
+.container>header>.inner>form>nav>#menuBar>li:nth-child(3)>.menu>.menuLine:hover{
+    background-color: #0f426c;
+    width: 100%;
+    height: 70px;
+    transition: 0.8s;
+}
+.container>header>.inner>form>nav>#menuBar>li:last-child>.menu>.menuLine:hover{
+    background-color: #0f426c;
+    width: 100%;
+    height: 180px;
+    transition: 0.8s;
+}
+.container>header>.inner>form>nav>#menuBar>li>.menu>ul>li{
+    padding: 20px 0;
+}
+.container>header>.inner>form>nav>#menuBar>li>.menu>ul>li>a{
+    font-size: 17px;
+    color: white;
+    font-family: 'NanumSquareB';
+}
+.container>header>.inner>form>nav>#menuBar>li>.menu>ul>li>a:hover{
+    color: #3E9AE5;
+}
+.bold{
+    font-weight: bold;
+}

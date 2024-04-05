@@ -1,0 +1,13 @@
+
+class CardPack2 {
+
+
+	private Card2 [] pack2 = new Card2 [52];
+	private int a;
+
+}
+
+public static void main(String[] args) {
+
+	
+}

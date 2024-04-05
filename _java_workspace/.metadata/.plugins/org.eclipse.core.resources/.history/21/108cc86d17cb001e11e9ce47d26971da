@@ -1,0 +1,19 @@
+
+class CardPack2 {
+
+
+	private Card2 [] Cardpack2 = new Card2 [52];
+	private int a;
+
+	public CardPack2 () {
+		
+		char shape = '◆';
+		
+	}
+
+
+	public static void main(String[] args) { // 확인
+
+	}
+
+}

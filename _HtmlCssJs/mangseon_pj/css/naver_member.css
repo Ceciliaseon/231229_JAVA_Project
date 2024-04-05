@@ -1,0 +1,75 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+@font-face {
+    font-family: NanumSquare_acR;
+    src: url(/font/나눔스퀘어/NanumSquareR.ttf);
+}
+
+.continer{
+    width: 750px;
+    height: 100vh;
+    border: 1px solid black;
+    text-align: center;   
+}
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+    font-size: 20px;
+    background-color: azure;
+}
+.header a:first-child{
+    text-decoration: none;
+    color: yellowgreen;
+    font-weight: 700;
+    font-size: 25px;
+}
+.header p{
+    font-family: NanumSquare_acR;
+}
+.header a:last-child{
+    color: gray;   
+}
+.section{
+    height: 400px;
+    background: linear-gradient(to right,#13BD86, #5162E6);
+
+}
+/* body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.header{
+    text-align: center;
+    display: inline-block;
+    width:700px;
+    margin: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+    background-color: rebeccapurple;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.header a:nth-child(1){
+    padding-right: 40px;
+    text-decoration: none;
+    color: #0CCB68;
+    font-weight: 700;
+}
+.header p{
+    padding-right: 40px;
+    font-family: NanumSquare_acR;
+    font-size: 20px;
+    
+}
+.section{
+    width: 700px;
+    height: 500px;
+    text-align: center;
+    
+} */

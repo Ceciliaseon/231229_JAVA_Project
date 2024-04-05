@@ -1,0 +1,129 @@
+@import url(reset.css);
+@font-face {
+    font-family: NanumSquare_acR;
+    src: url(/font/나눔스퀘어/NanumSquareR.ttf);
+}
+@font-face {
+    font-family: NanumSquareB;
+    src: url(/font/나눔스퀘어/NanumSquare_acEB.ttf);
+}
+body{
+    /* 컨텐츠 보호를 위해 */
+    min-width: 900px;
+    font-family: NanumSquare_acR;
+}
+/* .continer{
+    width: 100%;
+    height: 100vh;
+    
+} */
+.navbar{
+    width: 95%;
+    height: 100px;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h1 a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: NanumSquareB;
+}
+.navbar ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+.navbar ul li{
+    margin-right: 25px;
+}
+.navbar  ul li a{
+    color: black;
+    font-weight: 700;
+}
+.navbar ul li a:hover{
+    color: rgb(163, 94, 9);
+}
+.main-img{
+    height: 500px;
+    background-image: url(/image/grid/가방.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.title{
+    text-align: center;
+    margin: 50px auto;
+    font-size: 30px;
+    font-weight: 700;
+}
+.content{
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.content a{
+    flex: 1 1 30%;
+    color: black;
+}
+.content a p{
+    margin: 15px 0;
+}
+.content a p:last-child{
+    margin-bottom: 40px;
+    color: gray;
+}
+.content a div img{
+    /* width: 300px;
+    height: 300px; */
+    transition: transform 0.3s;
+}
+.content a div img:hover{
+    transform: scale(1.1);
+}
+.content a div {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+.footer{
+    text-align: center;
+    padding: 50px;
+}
+.footer a{
+    color: black;
+    margin: 30px;
+}
+.footer a:nth-child(1):hover{
+    color: blueviolet;
+}
+.footer a:nth-child(2):hover{
+    color: rgb(6, 150, 239);
+}
+.footer a:nth-child(3):hover{
+    color: rgb(6, 103, 239);
+}
+.content a{
+    position: relative;
+}
+.content .text{
+    position: absolute;
+    top:20px;
+    left: 50%;
+    transform: translateX(-59%);
+    color: rgb(173, 0, 0);
+    font-size: 16px;
+    font-weight: 700;
+    /* 화면에서 사라지게 */
+    display: none;
+}
+.content a div img:hover ~.text{
+    /* hover의 대상이 다른 객체일 경우 ~*/
+    display: block;
+}

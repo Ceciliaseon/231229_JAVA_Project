@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+/*  CSS 선택자 - 작용 우선순위
+h1{
+    color: red !important ;
+}
+.bule_text{
+    color: blue;
+}
+#green-text{
+    color: green;
+} */
+
+/* 반응형 웹 미디어 쿼리 구문 css */
+section.about{
+    background-color: crimson;
+    color: #fff;
+    padding: 25px;
+}
+
+@media (max-width : 768px){
+    section.about {
+        background-color: yellowgreen;
+        color: black;
+    }
+}

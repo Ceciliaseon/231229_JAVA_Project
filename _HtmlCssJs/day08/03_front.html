@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 기본 태그들이 가지고 있는 고유 속성들을 없애주는 코드 -->
+    <!-- <link rel="stylesheet" href="reset.css"> -->
+    <style>
+        @import url(reset.css);
+        body{
+            background: url(../image/flex.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            text-align: center;  
+        }
+        h1{
+            font-size: 25px;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+        }
+        li{
+            padding-right: 30px;
+            font-weight: 700;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .body-center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            background-color: rgba(93, 51, 0, 0.43);
+            border-radius: 30px;
+            padding: 50px 60px;
+            color: white;
+        }
+        .body-center h1{
+            font-size: 60px;
+            margin: 0;
+        }
+        .link{
+            font-size: 20px;
+            margin-top: 35px;
+            font-weight: 700;
+            border: 3px solid white;
+            border-radius: 10px;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: inline-block;
+            transition: 0.5s;
+        }
+        .link:hover{
+            /* border-color: rgb(93, 51, 0); */
+            background-color: white;
+            color: rgb(93, 51, 0);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DESIGN</h1>
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">LOGIN</a></li>
+            <li><a href="">SIGNUP</a></li>
+            <li><a href="">BOARD</a></li>
+        </ul>
+    </div>
+    <div class="body-center">
+        <h1>Welcome to Front-End</h1>
+        <h1>World</h1>
+        <div class="link">Learn More</div>
+    </div>
+</body>
+</html>

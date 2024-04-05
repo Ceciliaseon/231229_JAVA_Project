@@ -1,0 +1,61 @@
+package Bar;
+
+import java.util.Scanner;
+
+public class Admoney {
+
+    //배열 선언
+    private int money ;
+ 
+    public void addmoney(){
+    	int money=0;
+        Scanner scan = new Scanner(System.in);
+ 
+       while(true) {
+    	   System.out.println("1.충전 진행|2.충전 종료|3.인출");
+    	   int s = scan.nextInt();
+    	   if(s==1) {
+    	   System.out.print("입금액  >> ");
+    	   int amount = scan.nextInt();
+    	   int a = money+=amount;
+    	   
+    	   System.out.println("--충전 완료--");
+    	   System.out.println("잔액:"+ a );
+    	   }else if(s==2) {
+    		   System.out.println("충전 종료");
+    		   break;
+    	   }else {
+    		   System.out.println("인출액 >>");
+    	     int  t = scan.nextInt();
+    	     int b = money -=t;
+    	     System.out.println("--인출 완료--");
+    	     System.out.println("잔액 :"+ b);
+    	   
+    	   }
+    	   
+       }
+    
+       
+   }
+
+
+
+
+
+
+
+	public int getMoney() {
+		return money;
+	}
+
+
+
+
+
+
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+	
+}

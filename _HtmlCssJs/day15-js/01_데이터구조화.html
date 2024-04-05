@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        많은 양의 데이터가 실시간으로 전달되어야 할 때 가장 효율적으로 <br>
+        데이터를 보내는 방법 <br>
+        데이터 구조화 > 구조화된 텍스트 > JSON
+    </h2>
+    <ul>
+        <li>
+            JSON(JavaScript Object Notation) ** 많이 사용됨 <br>
+            JavaScript 객체를 구조화된 데이터로 표현하기 위한 문자 기반 표준 포맷
+        </li>
+        <li>
+            웹 서버 ↔ 화면 데이터를 전솔할 때 일반적으로 사용
+        </li>
+        <li>
+            자바 스크립트의 객체 형태를 가지고 있기 때문에, 구조 파악이 쉽고, 제작도 쉽다
+        </li>
+        <li>
+            특히, 웹 분야의 자바스크립트가 모든 플론트에 호환된다는 점을 활용 <br>
+            데이터 수집, 출력용으로 거의 모든 플랫폼 서비스에서 사용되고 있음
+        </li>
+    </ul>
+    <script>
+        //https://finance.naver.com/ 거래 상위 종목을 데이터 구조화 
+        const top = {
+            '거래상위' : [
+                {
+                    name:'KODEX 200선물인버스2X',
+                    price: 2060,
+                    updown:-70,
+                    ratio:-3.29
+                },
+                {
+                    name:'대영포장',
+                    price: 1981,
+                    updown: 256,
+                    ratio: 14.84
+                },{},{},{}
+            ],
+            '상승': [
+                {},{},{},{}
+            ],
+            '하락' : [
+                {},{},{},{}
+            ],
+            '시가총액 상위': [
+                {},{},{},{}
+            ]
+        }
+
+        // 환전고시환율 / 금시세
+        const exs={
+            '환전고시환율': [
+                {
+                    name : '미국USD',
+                    price : 1326.30,
+                    updown : -14.20
+                },
+                {
+                    name : '일본JPY (100엔)',
+                    price : 882.00,
+                    updown : -1.80
+                },
+                {
+                    name : '유럽연합EUR',
+                    price : 1450.71,
+                    updown : -2.46
+                },
+                {
+                    name : '중국CNY',
+                    price : 184.11,
+                    updown : -1.74
+                }
+            ],
+            '금시세':[
+                {
+                    name : '금제금(03.20)',
+                    price : 2161.00,
+                    updown : 1.30
+                },
+                {
+                    name : '금내금(03.21)',
+                    price : 94148.40,
+                    updown : 1145.86
+                }
+            ]
+        }
+    </script>
+</body>
+</html>

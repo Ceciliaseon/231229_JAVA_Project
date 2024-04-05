@@ -1,0 +1,11 @@
+
+public class CardpackMain {
+
+	public static void main(String[] args) {
+		
+		CardPack2 pack2 = new CardPack2();
+		pack2.random();
+
+	}
+
+}

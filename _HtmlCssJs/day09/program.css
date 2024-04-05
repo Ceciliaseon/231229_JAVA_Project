@@ -1,0 +1,47 @@
+.con-box:nth-child(3){
+    width: 100%;
+    height: 660px;
+    background-image: url(img/mainCon2_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+.con-box:nth-child(3) p:first-child{
+    font-size: 35px;
+    padding-top: 90px;
+}
+.con-box:nth-child(3) p:last-child{
+    padding-top: 30px;
+    font-size: 18px;
+}
+.con-box:nth-child(3)>ul{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 70px auto;
+}
+.con-box:nth-child(3) ul li a div:first-child{
+    height: 246px;
+}
+.con-box:nth-child(3) li a .box{
+    background-color: white;
+    line-height: 10px;
+    padding-bottom: 30px;
+}
+.con-box:nth-child(3) li a .box p{
+    font-size: 20px;
+    color: black;
+    font-weight: 700;
+}
+.con-box:nth-child(3) li:hover{
+    box-shadow: 3px 4px 15px rgb(175, 175, 175);
+    transition: 0.4s;
+}
+.con-box:nth-child(3) li :hover .box{
+    background-color: #1C7C57;
+}
+.con-box:nth-child(3) li:hover .box p{
+    color: white;
+}

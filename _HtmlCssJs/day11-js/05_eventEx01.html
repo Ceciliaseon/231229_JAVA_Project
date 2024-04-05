@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: NanumSquare_acR;
+            src: url(../font/나눔스퀘어/NanumSquare_acR.ttf);
+        }
+        fieldset{
+            margin: 0 auto;
+            width: 500px;
+            text-align: center;
+            padding: 20px;
+            justify-content: space-around;
+            font-family: NanumSquare_acR;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        p{
+            font-size: 16px;
+        }
+        input{
+            margin-left: 20px;
+            outline: none;
+        }
+        button{
+            margin-top: 15px;
+            background-color: cadetblue;
+            border: none;
+            border-radius: 5px;
+            width: 105px;
+            height: 30px;
+            line-height: 30px;
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        ol{
+            text-align: center;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        성적 확인
+        이름: 홍길동
+        국어:80
+        영어:90
+        수학:85
+        성적계산 버튼
+        ---------------------------
+        이름: 홍길동
+        국어:80
+        영어:90
+        수학:85
+        합계:00
+        평균:00 표시
+     -->
+     <form action="">
+        <fieldset>
+            <legend>성적 확인서</legend>
+                <p>이름 <input type="text" id="name"></p>
+                <p>국어 <input type="text" id="kor"></p>
+                <p>수학 <input type="text" id="mat"></p>
+                <p>영어 <input type="text" id="eng"></p>
+                <button type="button" onclick="gradeCard()">성적 계산</button>
+            </fieldset>
+     </form>
+     <ol id="ol"> </ol>
+     <script>
+        const ol = document.getElementById('ol');
+
+        let name = document.getElementById('name');
+        let kor = document.getElementById('kor');
+        let mat = document.getElementById('mat');
+        let eng = document.getElementById('eng');
+
+        function gradeCard(){
+            let korVal = Number(kor.value);
+            let matVal = Number(mat.value);
+            let engVal = Number(eng.value);
+
+            ol.innerHTML=`<li> 이름 : ${name.value} </li>`;
+            ol.innerHTML+=`<li> 국어 : ${korVal} </li>`;
+            ol.innerHTML+=`<li> 수학 : ${matVal} </li>`;
+            ol.innerHTML+=`<li> 영어 : ${engVal} </li>`;
+            
+            let sum = korVal+matVal+engVal;
+            ol.innerHTML+=`<li> 합계 : ${sum} </li>`;
+            
+            // let avg = Math.round(sum/3);
+            let avg = (sum/3).toFixed(2);
+            ol.innerHTML+=`평균 : ${avg}`;
+            //.toFixed(2) : 소수점 자리 표현  
+
+            name.value='';
+            kor.value='';
+            mat.value='';
+            eng.value='';
+        }
+     </script>
+</body>
+</html>

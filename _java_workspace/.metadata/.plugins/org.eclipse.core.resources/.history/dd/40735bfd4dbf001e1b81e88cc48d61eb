@@ -1,0 +1,10 @@
+package day18;
+
+import java.util.Scanner;
+
+public class WordManager {
+	
+	public void MakeWord(Scanner sc) {
+		
+	}
+}

@@ -1,0 +1,24 @@
+/* ul에 인접해있는 p태그만 색 변경 됨 */
+/* ul + p{ 
+    color: red;;
+} */
+
+/* ul에 속에있는 형제 p태그 모두 색 변경됨 */
+/* ul ~ p{
+    color: red;;
+} */
+
+/* ul~ div p{
+    color: red;
+} */
+/* 
+ul ~ div p+div{
+    color: red;
+} */
+
+/* 인접 형제 선택자 함께 사용하기(input) css */
+/* :checked 가상클래스 */
+input[type=radio]:checked + span{
+    color: red;
+    font-weight: bold;
+}

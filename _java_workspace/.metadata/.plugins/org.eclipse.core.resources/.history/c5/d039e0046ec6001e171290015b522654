@@ -1,0 +1,29 @@
+package Bar;
+
+import java.util.Scanner;
+
+public class TestMain {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		Scanner scan = new Scanner (System.in);
+		UserList ul = new UserList();
+		Admoney am = new Admoney();
+
+		int menu = 0;
+		do {
+			System.out.println("선택");
+			menu=scan.nextInt();
+			switch (menu) {
+			case 1 : ul.addUser(scan); break;
+			case 2 : ul.logIn(scan); break;
+			case 3 : ul.myPage(scan); break;
+			case 4 : am.addmoney(scan); break;
+			case 5 : break;
+			default : System.out.println("잘못된 ");
+			}
+		}while(menu != 5);
+		System.out.println("시스템 종료");
+	}
+
+}

@@ -1,0 +1,124 @@
+package Bar;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Reservationtest {
+
+   private ArrayList<Reservation> res = new ArrayList<>();//예약
+   private ArrayList<Reservation> seatn = new ArrayList<>();//좌석
+   
+   //좌석 세팅
+   public void addseat() {  //기본 좌석 세팅 
+      seatn.add(new Reservation(" A1 ")); 
+      seatn.add(new Reservation(" A2 "));
+      seatn.add(new Reservation(" A3 "));
+      seatn.add(new Reservation(" A4 "));
+      seatn.add(new Reservation(" B1 "));
+      seatn.add(new Reservation(" B2 "));
+      seatn.add(new Reservation(" B3 "));
+      seatn.add(new Reservation(" B4 "));
+      seatn.add(new Reservation(" C1 "));
+      seatn.add(new Reservation(" C2 "));
+      seatn.add(new Reservation(" C3 ") );
+      seatn.add(new Reservation(" C4 ")); 
+      seatn.add(new Reservation(" D1 "));
+      seatn.add(new Reservation(" D2 "));
+      seatn.add(new Reservation(" D3 "));
+      seatn.add(new Reservation(" D4 "));
+    }
+   
+   public void printseat(Scanner scan) {
+      System.out.println("   ┎━━━━━━━━━━━━━━━━ 좌석 ━━━━━━━━━━━━━━━┒");
+      for(int i=0; i<seatn.size(); i++) {
+         if(i % 4 == 0 && i !=0) {
+            System.out.println();
+         }
+         System.out.print("     "+seatn.get(i).getSeat());
+      }
+      System.out.println();
+//      System.out.println(   "       A1      A2      A3     A4       ");
+//      System.out.println(   "       B1      B2      B3     B4       ");
+//      System.out.println(   "       C1      C2      C3     C4       ");
+//      System.out.println(   "       D1      D2      D3     D4       ");
+      System.out.println("   ┖━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┚");
+   }
+   public void cancelreservation(Scanner scan) {//예약취소
+      int menu=0;
+      do {printseat(scan);
+         System.out.println("-----------menu-----------");
+         System.out.println("1,예약취소 |2,종료");
+         menu=scan.nextInt();
+         switch(menu) {
+         
+         case 1: System.out.println("예약자 이름>> "); 
+         String cancelname=scan.next();
+         for(int i =0; i<res.size(); i++) {
+            if(cancelname.equals(res.get(i).getName())) {
+               res.remove(i);
+            }
+         }
+         System.out.println("예약 취소 완료");
+         
+         
+         break;
+         case 2: System.out.println("예약시스템 종료");break;
+         default :System.out.println("잘못누르셨습니다.");
+         }
+         
+         
+         
+      }while(menu!=2);
+   }
+   
+   public void  printreservation(Scanner scan) { //예약조회
+      for(int  i=0; i<res.size(); i++) {
+         System.out.println("조회하실 성함>>");
+         String openname=scan.next();
+         if(res.get(i).getName().equals(openname)) {
+            System.out.println("예약자 이름: "+res.get(i).getName()+" 예약인원: "+res.get(i).getGroup()
+                  +" 예약석: "+seatn.get(i).getSeat());
+         }else {
+         System.out.println("명단에 없습니다.");
+         }
+     }
+   }
+   public void addreservation(Scanner scan) { //예약 추가
+      System.out.println("예약자이름 >>");
+         String name=scan.next();
+         System.out.println("예약인원 >>");
+           int group=scan.nextInt();
+          System.out.println("예약자 이름:"+name+" 예약인원: "+group+"명");
+          res.add(new Reservation(name,group));
+          System.out.println("좌석번호 >>");
+          String seatnum = scan.next();
+          for(int i=0; i<seatn.size(); i++) {
+             if(seatn.get(i).getSeat().equals(" "+seatnum+" ")) {
+                seatn.set(i, new Reservation("["+seatnum+"]"));
+                
+                break;                
+             }
+          }
+          System.out.println("예약한 좌석번호: "+seatnum);
+          
+          System.out.println("예약완료!!");
+   }
+
+   public void reservation(Scanner scan) { //예약기능 메서드
+      int menu=0;
+      do {printseat(scan);
+         System.out.println("-----------menu-----------");
+         System.out.println("1,예약하기 |2,예약조회 |3,종료");
+         menu=scan.nextInt();
+         switch(menu) {
+         
+         case 1: addreservation(scan); break;
+         case 2: printreservation(scan); break;
+         case 3: System.out.println("예약시스템 종료");break;
+         default :System.out.println("잘못누르셨습니다.");
+         }
+         
+         
+         
+      }while(menu!=3);
+   }
+   }
